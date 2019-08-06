@@ -1,6 +1,8 @@
 
 #!/bin/bash
 
+AZ_REPO=$(lsb_release -cs)
+
 # Install basic command-line utilities
 apt-get update
 apt-get install -y --no-install-recommends \
@@ -35,27 +37,29 @@ apt-get install -y --no-install-recommends build-essential
 rm -rf /var/lib/apt/lists/*
 
 # Install Azure CLI (instructions taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-AZ_REPO=$(lsb_release -cs)
-#echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
-#curl -L https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-#apt-get update
-#apt-get install -y --no-install-recommends apt-transport-https azure-cli 
-#rm -rf /var/lib/apt/lists/*
-#rm -rf /etc/apt/sources.list.d/*
-#az --version
+# echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
+# curl -L https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+# apt-get update
+# apt-get install -y --no-install-recommends apt-transport-https azure-cli 
+# rm -rf /var/lib/apt/lists/*
+# rm -rf /etc/apt/sources.list.d/*
+# az --version
 
 # Install Clang (only appears to work on xenial)
-#wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
-#apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
-#apt-get update
+# wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+# apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
+# apt-get update
 apt-get install -y --no-install-recommends clang-6.0 
 rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 # Install CMake
-#curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh && chmod +x cmake.sh
-#./cmake.sh --prefix=/usr/local --exclude-subdir
-#rm cmake.sh
+# curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh && chmod +x cmake.sh
+# ./cmake.sh --prefix=/usr/local --exclude-subdir
+# rm cmake.sh
+# apt-get install -y --no-install-recommends cmake
+rm -rf /var/lib/apt/lists/*
+rm -rf /etc/apt/sources.list.d/*
 
 # Install Go
 curl -sL https://dl.google.com/go/go1.12.7.linux-armv6l.tar.gz -o go1.12.7.linux-armv6l.tar.gz
