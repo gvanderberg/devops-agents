@@ -32,7 +32,7 @@ locale-gen $LANG
 update-locale
 
 # Install essential build tools
-apt-get update
+# apt-get update
 apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
