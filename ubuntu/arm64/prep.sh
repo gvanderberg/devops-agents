@@ -1,7 +1,10 @@
-
 #!/bin/bash
 
 AZ_REPO=$(lsb_release -cs)
+
+echo
+echo 1\) Install Recommended
+echo
 
 # Install basic command-line utilities
 apt-get update
@@ -25,16 +28,28 @@ apt-get install -y --no-install-recommends \
   tzdata 
 rm -rf /var/lib/apt/lists/*
 
+echo
+echo 2\) Setup the locale
+echo
+
 # Setup the locale
 LANG=en_US.UTF-8
 LC_ALL=$LANG
 locale-gen $LANG
 update-locale
 
+echo
+echo 3\) Install Build Tools
+echo
+
 # Install essential build tools
-# apt-get update
+apt-get update
 apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
+
+# echo
+# echo 4\) Install Azure CLI
+# echo
 
 # Install Azure CLI (instructions taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 # echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
@@ -45,11 +60,19 @@ rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 # az --version
 
+echo
+echo 5\) Install Clang
+echo
+
 # Install Clang (only appears to work on xenial)
-# apt-get update
+apt-get update
 apt-get install -y --no-install-recommends clang-6.0 
 rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
+
+# echo
+# echo 6\) Install CMake
+# echo
 
 # Install CMake
 # curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh && chmod +x cmake.sh
@@ -59,6 +82,10 @@ rm -rf /etc/apt/sources.list.d/*
 # rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 
+echo
+echo 7\) Install GO
+echo
+
 # Install Go
 curl -sL https://dl.google.com/go/go1.12.7.linux-armv6l.tar.gz -o go1.12.7.linux-armv6l.tar.gz
 mkdir -p /usr/local/go1.12.7
@@ -66,6 +93,10 @@ tar -C /usr/local/go1.12.7 -xzf go1.12.7.linux-armv6l.tar.gz --strip-components=
 rm go1.12.7.linux-armv6l.tar.gz
 GOROOT=/usr/local/go1.12.7
 PATH=$PATH:$GOROOT/bin
+
+# echo
+# echo 8\) Install Google Chrome
+# echo
 
 # Install Google Chrome
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -75,13 +106,27 @@ PATH=$PATH:$GOROOT/bin
 # rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 
+echo
+echo 9\) Install Helm
+echo
+
 # Install Helm
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+helm version --client
+
+echo
+echo 10\) Install Kubectl
+echo
 
 # Install kubectl
 curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm64/kubectl
 chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+
+echo
+echo 11\) Install Mono
+echo
 
 # Install Mono
 apt-get install gnupg ca-certificates
@@ -92,6 +137,10 @@ apt-get install -y --no-install-recommends mono-complete
 rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
+echo
+echo 12\) Install Install .NET Core SDK
+echo
+
 # Install .NET Core SDK and initialize package cache
 curl https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb > packages-microsoft-prod.deb
 dpkg -i packages-microsoft-prod.deb
@@ -101,6 +150,10 @@ apt-get install -y --no-install-recommends dotnet-sdk-2.2
 rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 dotnet --version
+
+echo
+echo 13\) Install Node.js
+echo
 
 # Install LTS Node.js and related tools
 wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
