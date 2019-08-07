@@ -47,9 +47,9 @@ apt-get update
 apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
-# echo
-# echo 4\) Install Azure CLI
-# echo
+echo
+echo 4\) Install Azure CLI
+echo
 
 # Install Azure CLI (instructions taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 # echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
@@ -70,9 +70,9 @@ apt-get install -y --no-install-recommends clang-6.0
 rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
-# echo
-# echo 6\) Install CMake
-# echo
+echo
+echo 6\) Install CMake
+echo
 
 # Install CMake
 # curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh && chmod +x cmake.sh
@@ -94,9 +94,9 @@ rm go1.12.7.linux-armv6l.tar.gz
 GOROOT=/usr/local/go1.12.7
 PATH=$PATH:$GOROOT/bin
 
-# echo
-# echo 8\) Install Google Chrome
-# echo
+echo
+echo 8\) Install Google Chrome
+echo
 
 # Install Google Chrome
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
