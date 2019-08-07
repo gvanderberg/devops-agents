@@ -136,6 +136,7 @@ apt-get update
 apt-get install -y --no-install-recommends mono-complete
 rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
+mono --version
 
 echo
 echo 12\) Install Install .NET Core SDK
