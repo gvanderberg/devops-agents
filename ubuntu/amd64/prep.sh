@@ -107,6 +107,7 @@ apt-get update
 apt-get install -y --no-install-recommends apt-transport-https mono-complete 
 rm -rf /var/lib/apt/lists/* \
 rm -rf /etc/apt/sources.list.d/*
+mono --version
 
 echo
 echo 10\) Install .NET Core SDK
@@ -119,6 +120,7 @@ apt-get update
 apt-get install -y --no-install-recommends apt-transport-https dotnet-sdk-2.2 
 rm -rf /var/lib/apt/lists/* \
 rm -rf /etc/apt/sources.list.d/*
+dotnet --version
 
 echo
 echo 11\) Install AzCopy
@@ -145,6 +147,7 @@ npm install -g webpack webpack-cli --save-dev
 npm install -g parcel-bundler 
 npm i -g npm 
 rm -rf ~/n
+node --version
 
 echo
 echo 13\) Install Powershell Core
