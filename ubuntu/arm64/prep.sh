@@ -64,7 +64,7 @@ echo
 echo 5\) Install Clang
 echo
 
-# Install Clang (only appears to work on xenial)
+# Install Clang
 apt-get update
 apt-get install -y --no-install-recommends clang-6.0 
 rm -rf /var/lib/apt/lists/*
