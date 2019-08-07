@@ -1,10 +1,13 @@
 #!/bin/bash
-apt-get update
+
+AZ_REPO=$(lsb_release -cs)
 
 echo
 echo 1\) Install Recommended
 echo
 
+# Install basic command-line utilities
+apt-get update
 apt-get install -y --no-install-recommends \
     curl \
     dnsutils \
