@@ -100,12 +100,10 @@ apt-get update
 apt-get install -y --no-install-recommends dotnet-sdk-2.2
 rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
-dotnet help
+dotnet --version
 
 # Install LTS Node.js and related tools
 wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y --no-install-recommends nodejs
-
-
-
+node --version
 
