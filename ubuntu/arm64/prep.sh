@@ -46,8 +46,6 @@ rm -rf /var/lib/apt/lists/*
 # az --version
 
 # Install Clang (only appears to work on xenial)
-# wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
-# apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 # apt-get update
 apt-get install -y --no-install-recommends clang-6.0 
 rm -rf /var/lib/apt/lists/*
@@ -58,8 +56,8 @@ rm -rf /etc/apt/sources.list.d/*
 # ./cmake.sh --prefix=/usr/local --exclude-subdir
 # rm cmake.sh
 # apt-get install -y --no-install-recommends cmake
-rm -rf /var/lib/apt/lists/*
-rm -rf /etc/apt/sources.list.d/*
+# rm -rf /var/lib/apt/lists/*
+# rm -rf /etc/apt/sources.list.d/*
 
 # Install Go
 curl -sL https://dl.google.com/go/go1.12.7.linux-armv6l.tar.gz -o go1.12.7.linux-armv6l.tar.gz
@@ -70,12 +68,44 @@ GOROOT=/usr/local/go1.12.7
 PATH=$PATH:$GOROOT/bin
 
 # Install Google Chrome
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-echo "deb [arch=arm64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
-apt-get update
-apt-get install -y --no-install-recommends google-chrome-stable 
-rm -rf /var/lib/apt/lists/*
-rm -rf /etc/apt/sources.list.d/*
+# wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
+# echo "deb [arch=arm64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
+# apt-get update
+# apt-get install -y --no-install-recommends google-chrome-stable 
+# rm -rf /var/lib/apt/lists/*
+# rm -rf /etc/apt/sources.list.d/*
 
 # Install Helm
 curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+
+# Install kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm64/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
+
+# Install Mono
+apt-get install gnupg ca-certificates
+apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
+echo "deb https://download.mono-project.com/repo/ubuntu stable-$AZ_REPO main" | tee /etc/apt/sources.list.d/mono-official-stable.list
+apt-get update
+apt-get install -y --no-install-recommends mono-complete
+rm -rf /var/lib/apt/lists/*
+rm -rf /etc/apt/sources.list.d/*
+
+# Install .NET Core SDK and initialize package cache
+curl https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb > packages-microsoft-prod.deb
+dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+apt-get update
+apt-get install -y --no-install-recommends dotnet-sdk-2.2
+rm -rf /var/lib/apt/lists/*
+rm -rf /etc/apt/sources.list.d/*
+dotnet help
+
+# Install LTS Node.js and related tools
+wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y --no-install-recommends nodejs
+
+
+
+
