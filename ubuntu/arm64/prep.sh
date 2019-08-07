@@ -158,3 +158,10 @@ wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install -y --no-install-recommends nodejs
 node --version
 
+echo
+echo 14\) Clean up
+echo
+
+apt-get clean
+rm -rf /var/lib/apt/lists/*
+rm -rf /etc/apt/sources.list.d/*
