@@ -143,13 +143,10 @@ echo 12\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
-curl https://packages.microsoft.com/config/ubuntu/18.04/packages-microsoft-prod.deb > packages-microsoft-prod.deb
-dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb
-apt-get update
-apt-get install -y --no-install-recommends dotnet-sdk-2.2
-rm -rf /var/lib/apt/lists/*
-rm -rf /etc/apt/sources.list.d/*
+wget https://download.visualstudio.microsoft.com/download/pr/1560f31a-d566-4de0-9fef-1a40b2b2a748/163f23fb8018e064034f3492f54358f1/dotnet-sdk-2.2.401-linux-arm64.tar.gz
+mkdir -p /usr/share/dotnet
+tar -zxf dotnet-sdk-2.2.401-linux-arm64.tar.gz -C /usr/share/dotnet
+ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
