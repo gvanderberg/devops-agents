@@ -33,8 +33,8 @@ echo 2\) Setup the locale
 echo
 
 # Setup the locale
-LANG=en_US.UTF-8
-LC_ALL=$LANG
+export LANG=en_US.UTF-8
+export LC_ALL=$LANG
 locale-gen $LANG
 update-locale
 
