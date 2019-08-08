@@ -107,7 +107,15 @@ echo
 # rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 9\) Install Helm
+echo 9\) Install Docker
+echo
+
+# Install Docker
+apt-get  install docker.io
+docker --version
+
+echo
+echo 10\) Install Helm
 echo
 
 # Install Helm
@@ -115,7 +123,7 @@ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm version --client
 
 echo
-echo 10\) Install Kubectl
+echo 11\) Install Kubectl
 echo
 
 # Install kubectl
@@ -125,7 +133,7 @@ mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 echo
-echo 11\) Install Mono
+echo 12\) Install Mono
 echo
 
 # Install Mono
@@ -139,7 +147,7 @@ rm -rf /etc/apt/sources.list.d/*
 mono --version
 
 echo
-echo 12\) Install Install .NET Core SDK
+echo 13\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
@@ -150,7 +158,7 @@ ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 13\) Install Node.js
+echo 14\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
@@ -159,7 +167,7 @@ sudo apt-get install -y --no-install-recommends nodejs
 node --version
 
 echo
-echo 14\) Clean up
+echo 15\) Clean up
 echo
 
 apt-get clean
