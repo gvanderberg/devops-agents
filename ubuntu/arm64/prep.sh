@@ -111,7 +111,7 @@ echo 9\) Install Docker
 echo
 
 # Install Docker
-apt-get  install docker.io
+apt-get install -y --no-install-recommends docker.io
 docker --version
 
 echo
