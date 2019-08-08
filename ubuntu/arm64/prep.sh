@@ -91,8 +91,8 @@ curl -sL https://dl.google.com/go/go1.12.7.linux-armv6l.tar.gz -o go1.12.7.linux
 mkdir -p /usr/local/go1.12.7
 tar -C /usr/local/go1.12.7 -xzf go1.12.7.linux-armv6l.tar.gz --strip-components=1 go
 rm go1.12.7.linux-armv6l.tar.gz
-GOROOT=/usr/local/go1.12.7
-PATH=$PATH:$GOROOT/bin
+export GOROOT=/usr/local/go1.12.7
+export PATH=$PATH:$GOROOT/bin
 
 echo
 echo 8\) Install Google Chrome
