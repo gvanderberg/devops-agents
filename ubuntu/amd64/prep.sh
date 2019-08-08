@@ -32,8 +32,8 @@ echo
 echo 2\) Setup the locale
 echo
 
-LANG=en_US.UTF-8
-LC_ALL=$LANG
+export LANG=en_US.UTF-8
+export LC_ALL=$LANG
 locale-gen $LANG
 update-locale
 
@@ -42,7 +42,6 @@ echo 3\) Install Build Tools
 echo
 
 apt-get update
-
 apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
@@ -73,10 +72,10 @@ echo
 echo 6\) Install CMake
 echo
 
-curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh \
-    && chmod +x cmake.sh \
-    && ./cmake.sh --prefix=/usr/local --exclude-subdir \
-    && rm cmake.sh
+curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh 
+chmod +x cmake.sh 
+./cmake.sh --prefix=/usr/local --exclude-subdir 
+rm cmake.sh
 
 echo
 echo 7\) Install Google Chrome
