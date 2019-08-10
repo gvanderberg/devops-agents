@@ -89,7 +89,33 @@ rm -rf /var/lib/apt/lists/* \
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 8\) Install Java OpenJDKs
+echo 8\) Install Docker
+echo
+
+# Install Docker
+apt-get install -y --no-install-recommends docker.io
+docker --version
+
+echo
+echo 9\) Install Helm
+echo
+
+# Install Helm
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+helm version --client
+
+echo
+echo 10\) Install Kubectl
+echo
+
+# Install kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+
+echo
+echo 11\) Install Java OpenJDKs
 echo
 
 apt-add-repository -y ppa:openjdk-r/ppa
@@ -97,7 +123,7 @@ apt-get update
 apt-get install -y --no-install-recommends openjdk-11-jdk
 
 echo
-echo 9\) Install Mono
+echo 12\) Install Mono
 echo
 
 apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF 
@@ -109,7 +135,7 @@ rm -rf /etc/apt/sources.list.d/*
 mono --version
 
 echo
-echo 10\) Install .NET Core SDK
+echo 13\) Install .NET Core SDK
 echo
 
 curl https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb > packages-microsoft-prod.deb 
@@ -122,7 +148,7 @@ rm -rf /etc/apt/sources.list.d/*
 dotnet --version
 
 echo
-echo 11\) Install AzCopy
+echo 14\) Install AzCopy
 echo
 
 apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF 
@@ -133,7 +159,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 12\) Install Node.js
+echo 15\) Install Node.js
 echo
 
 curl -sL https://git.io/n-install | bash -s -- -ny - \
@@ -149,7 +175,7 @@ rm -rf ~/n
 node --version
 
 echo
-echo 13\) Install Powershell Core
+echo 16\) Install Powershell Core
 echo
 
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
@@ -160,7 +186,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 14\) Install yarn
+echo 17\) Install yarn
 echo
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
@@ -171,7 +197,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 15\) Clean system
+echo 18\) Clean system
 echo
 
 apt-get clean 
