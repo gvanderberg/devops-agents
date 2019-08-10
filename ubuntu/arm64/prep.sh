@@ -138,7 +138,11 @@ echo
 
 apt-add-repository -y ppa:openjdk-r/ppa
 apt-get update
+apt-get install -y --no-install-recommends openjdk-11-jdk
+rm -rf /var/lib/apt/lists/*
+apt-get update
 apt-get install -y --no-install-recommends openjdk-12-jdk
+rm -rf /var/lib/apt/lists/*
 
 echo
 echo 13\) Install Mono
