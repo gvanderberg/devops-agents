@@ -65,7 +65,7 @@ wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
 apt-get update
 apt-get install -y --no-install-recommends clang-6.0 
-rm -rf /var/lib/apt/lists/* \
+rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/* || echo -n
 
 echo
@@ -85,7 +85,7 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list 
 apt-get update
 apt-get install -y google-chrome-stable
-rm -rf /var/lib/apt/lists/* \
+rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 
 echo
@@ -134,7 +134,7 @@ apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BF
 echo "deb https://download.mono-project.com/repo/ubuntu stable-xenial main" | tee /etc/apt/sources.list.d/mono-official-stable.list 
 apt-get update 
 apt-get install -y --no-install-recommends apt-transport-https mono-complete 
-rm -rf /var/lib/apt/lists/* \
+rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 mono --version
 
@@ -147,7 +147,7 @@ dpkg -i packages-microsoft-prod.deb
 rm packages-microsoft-prod.deb 
 apt-get update 
 apt-get install -y --no-install-recommends apt-transport-https dotnet-sdk-2.2 
-rm -rf /var/lib/apt/lists/* \
+rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 dotnet --version
 
@@ -166,8 +166,7 @@ echo
 echo 15\) Install Node.js
 echo
 
-curl -sL https://git.io/n-install | bash -s -- -ny - \
- && ~/n/bin/n lts 
+curl -sL https://git.io/n-install | bash -s -- -ny - && ~/n/bin/n lts 
 npm install -g bower 
 npm install -g grunt 
 npm install -g gulp 
