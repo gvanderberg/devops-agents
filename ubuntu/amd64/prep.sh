@@ -49,12 +49,7 @@ echo
 echo 4\) Install Azure CLI
 echo
 
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list
-curl -L https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
-apt-get update
-apt-get install -y --no-install-recommends apt-transport-https azure-cli
-rm -rf /var/lib/apt/lists/* 
-rm -rf /etc/apt/sources.list.d/* 
+curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 az --version
 
 echo
