@@ -88,8 +88,9 @@ echo 8\) Install Docker
 echo
 
 # Install Docker
-apt-get install -y --no-install-recommends docker.io
-docker --version
+curl -sSL https://get.docker.com | sh
+# apt-get install -y --no-install-recommends docker.io
+# docker --version
 
 echo
 echo 9\) Install Helm
