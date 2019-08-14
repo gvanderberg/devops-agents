@@ -163,11 +163,11 @@ echo 14\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
-# wget https://download.visualstudio.microsoft.com/download/pr/1560f31a-d566-4de0-9fef-1a40b2b2a748/163f23fb8018e064034f3492f54358f1/dotnet-sdk-2.2.401-linux-arm64.tar.gz
-# mkdir -p /usr/share/dotnet
-# tar -zxf dotnet-sdk-2.2.401-linux-arm64.tar.gz -C /usr/share/dotnet
-# ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
-# dotnet --version
+wget https://download.visualstudio.microsoft.com/download/pr/3cb1d917-19cc-4399-9a53-03bb5de223f6/be3e011601610d9fe0a4f6b1962378ea/dotnet-sdk-2.2.401-linux-arm.tar.gz
+mkdir -p /usr/share/dotnet
+tar -zxf dotnet-sdk-2.2.401-linux-arm64.tar.gz -C /usr/share/dotnet
+ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+dotnet --version
 
 echo
 echo 15\) Install Node.js
