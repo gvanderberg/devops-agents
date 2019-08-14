@@ -13,6 +13,7 @@ apt-get install -y --no-install-recommends \
   dnsutils \
   file \
   ftp \
+  git \
   iproute2 \
   iputils-ping \
   locales \
