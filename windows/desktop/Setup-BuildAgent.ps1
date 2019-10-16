@@ -4,3 +4,5 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 choco install -y docker-desktop
 choco install -y jdk8
 choco install -y nodejs-lts
+choco install -y terraform
+choco install -y yarn
