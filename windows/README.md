@@ -7,5 +7,5 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw
 ### Server 2016
 
 ```
-Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/gvanderberg/devops-agents/master/windows/server-2016/Setup-BuildAgent.ps1'))
+Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/gvanderberg/devops-agents/master/windows/server/Setup-BuildAgent.ps1'))
 ```
