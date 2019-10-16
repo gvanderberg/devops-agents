@@ -3,6 +3,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://cho
 
 choco install -y azure-cli
 choco install -y docker-desktop
+choco install -y dotnetcore-sdk
 choco install -y jdk8
 choco install -y kubernetes-cli
 choco install -y kubernetes-helm
