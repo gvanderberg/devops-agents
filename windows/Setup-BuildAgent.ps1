@@ -1,6 +1,22 @@
 Set-ExecutionPolicy Bypass -Scope Process -Force
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
+$OSVersion = (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion" -Name ProductName).ProductName
+
+switch ($OSVersion)
+{
+  "Windows 10 Enterprise"
+  {
+    choco install -y docker-desktop
+  }
+  "Windows Server 2016 Standard"
+  {
+    Install-Module -Name DockerMsftProvider -Force
+    Install-Package Docker -ProviderName DockerMsftProvider -Force
+    (Install-WindowsFeature Containers).RestartNeeded
+  }
+}
+
 choco install -y azure-cli
 choco install -y dotnetcore-sdk
 choco install -y git.install
