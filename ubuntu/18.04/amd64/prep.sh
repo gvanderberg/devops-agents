@@ -69,8 +69,6 @@ echo
 
 # Install Docker
 curl -sSL https://get.docker.com | sh
-# apt-get install -y --no-install-recommends docker.io
-# docker --version
 
 echo
 echo 7\) Install Helm
