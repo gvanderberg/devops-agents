@@ -113,6 +113,7 @@ echo
 
 # Install Docker
 curl -sSL https://get.docker.com | sh
+rm -rf /etc/apt/sources.list.d/*
 # apt-get install -y --no-install-recommends docker.io
 # docker --version
 
