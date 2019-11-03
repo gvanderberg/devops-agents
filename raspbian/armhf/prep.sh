@@ -117,23 +117,23 @@ rm -rf /etc/apt/sources.list.d/*
 # apt-get install -y --no-install-recommends docker.io
 # docker --version
 
-# echo
-# echo 10\) Install Helm
-# echo
+echo
+echo 10\) Install Helm
+echo
 
 # Install Helm
-# curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
-# helm version --client
+curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+helm version --client
 
-# echo
-# echo 11\) Install Kubectl
-# echo
+echo
+echo 11\) Install Kubectl
+echo
 
 # Install kubectl
-# curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm64/kubectl
-# chmod +x ./kubectl
-# mv ./kubectl /usr/local/bin/kubectl
-# kubectl version --client
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
 
 echo
 echo 12\) Install Java OpenJDKs
@@ -167,7 +167,7 @@ echo
 apt-get update
 apt-get install -y libunwind8
 wget https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
-chmod +x dotnet-install.sh
+chmod +x ./dotnet-install.sh
 mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
