@@ -180,8 +180,16 @@ echo 15\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
-wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y --no-install-recommends nodejs
+curl -sL https://git.io/n-install | bash -s -- -ny - \
+  ~/n/bin/n lts \
+  npm install -g bower \
+  npm install -g grunt \
+  npm install -g gulp \
+  npm install -g n \
+  npm install -g webpack webpack-cli --save-dev \
+  npm install -g parcel-bundler \
+  npm i -g npm
+rm -rf ~/n
 node --version
 
 echo
