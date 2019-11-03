@@ -180,7 +180,7 @@ echo 15\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
-curl -sL https://git.io/n-install | sudo bash -s -- -ny - lts
+curl -sL https://git.io/n-install | bash -s -- -ny - lts
 rm -rf ~/n
 node --version
 
