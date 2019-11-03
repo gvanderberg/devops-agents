@@ -29,15 +29,15 @@ apt-get install -y --no-install-recommends \
   tzdata 
 rm -rf /var/lib/apt/lists/*
 
-echo
-echo 2\) Setup the locale
-echo
+# echo
+# echo 2\) Setup the locale
+# echo
 
 # Setup the locale
-export LANG=en_US.UTF-8
-export LC_ALL=$LANG
-locale-gen $LANG
-update-locale
+# export LANG=en_US.UTF-8
+# export LC_ALL=$LANG
+# locale-gen $LANG
+# update-locale
 
 echo
 echo 3\) Install Build Tools
@@ -48,9 +48,9 @@ apt-get update
 apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
-echo
-echo 4\) Install Azure CLI
-echo
+# echo
+# echo 4\) Install Azure CLI
+# echo
 
 # Install Azure CLI (instructions taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
 # echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
@@ -61,9 +61,9 @@ echo
 # rm -rf /etc/apt/sources.list.d/*
 # az --version
 
-echo
-echo 5\) Install Clang
-echo
+# echo
+# echo 5\) Install Clang
+# echo
 
 # Install Clang
 # apt-get update
@@ -71,9 +71,9 @@ echo
 # rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 
-echo
-echo 6\) Install CMake
-echo
+# echo
+# echo 6\) Install CMake
+# echo
 
 # Install CMake
 # curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh && chmod +x cmake.sh
@@ -83,9 +83,9 @@ echo
 # rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 
-echo
-echo 7\) Install GO
-echo
+# echo
+# echo 7\) Install GO
+# echo
 
 # Install Go
 # curl -sL https://dl.google.com/go/go1.12.7.linux-armv6l.tar.gz -o go1.12.7.linux-armv6l.tar.gz
@@ -95,9 +95,9 @@ echo
 # export GOROOT=/usr/local/go1.12.7
 # export PATH=$PATH:$GOROOT/bin
 
-echo
-echo 8\) Install Google Chrome
-echo
+# echo
+# echo 8\) Install Google Chrome
+# echo
 
 # Install Google Chrome
 # wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
@@ -116,17 +116,17 @@ curl -sSL https://get.docker.com | sh
 # apt-get install -y --no-install-recommends docker.io
 # docker --version
 
-echo
-echo 10\) Install Helm
-echo
+# echo
+# echo 10\) Install Helm
+# echo
 
 # Install Helm
-curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
-helm version --client
+# curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+# helm version --client
 
-echo
-echo 11\) Install Kubectl
-echo
+# echo
+# echo 11\) Install Kubectl
+# echo
 
 # Install kubectl
 # curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm64/kubectl
@@ -144,39 +144,39 @@ apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java --version
 
-echo
-echo 13\) Install Mono
-echo
+# echo
+# echo 13\) Install Mono
+# echo
 
 # Install Mono
-apt-get install gnupg ca-certificates
+# apt-get install gnupg ca-certificates
 # apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
 # echo "deb https://download.mono-project.com/repo/ubuntu stable-$AZ_REPO main" | tee /etc/apt/sources.list.d/mono-official-stable.list
-apt-get update
-apt-get install -y --no-install-recommends mono-complete
-rm -rf /var/lib/apt/lists/*
-rm -rf /etc/apt/sources.list.d/*
-mono --version
+# apt-get update
+# apt-get install -y --no-install-recommends mono-complete
+# rm -rf /var/lib/apt/lists/*
+# rm -rf /etc/apt/sources.list.d/*
+# mono --version
 
-echo
-echo 14\) Install Install .NET Core SDK
-echo
+# echo
+# echo 14\) Install Install .NET Core SDK
+# echo
 
 # Install .NET Core SDK and initialize package cache
-wget https://download.visualstudio.microsoft.com/download/pr/3cb1d917-19cc-4399-9a53-03bb5de223f6/be3e011601610d9fe0a4f6b1962378ea/dotnet-sdk-2.2.401-linux-arm.tar.gz
-mkdir -p /usr/share/dotnet
-tar -zxf dotnet-sdk-2.2.401-linux-arm64.tar.gz -C /usr/share/dotnet
-ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
-dotnet --version
+# wget https://download.visualstudio.microsoft.com/download/pr/3cb1d917-19cc-4399-9a53-03bb5de223f6/be3e011601610d9fe0a4f6b1962378ea/dotnet-sdk-2.2.401-linux-arm.tar.gz
+# mkdir -p /usr/share/dotnet
+# tar -zxf dotnet-sdk-2.2.401-linux-arm64.tar.gz -C /usr/share/dotnet
+# ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+# dotnet --version
 
-echo
-echo 15\) Install Node.js
-echo
+# echo
+# echo 15\) Install Node.js
+# echo
 
 # Install LTS Node.js and related tools
-wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install -y --no-install-recommends nodejs
-node --version
+# wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
+# sudo apt-get install -y --no-install-recommends nodejs
+# node --version
 
 echo
 echo 16\) Clean up
