@@ -164,6 +164,8 @@ echo 14\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
+apt-get update
+apt-get install -y libunwind8
 wget https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
 chmod +x dotnet-install.sh
 mkdir -p /usr/share/dotnet
