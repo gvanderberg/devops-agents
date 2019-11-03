@@ -175,14 +175,14 @@ mkdir -p /usr/share/dotnet
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
-# echo
-# echo 15\) Install Node.js
-# echo
+echo
+echo 15\) Install Node.js
+echo
 
 # Install LTS Node.js and related tools
-# wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
-# sudo apt-get install -y --no-install-recommends nodejs
-# node --version
+wget -qO- https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install -y --no-install-recommends nodejs
+node --version
 
 echo
 echo 16\) Clean up
