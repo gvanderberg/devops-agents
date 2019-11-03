@@ -159,16 +159,16 @@ java --version
 # rm -rf /etc/apt/sources.list.d/*
 # mono --version
 
-# echo
-# echo 14\) Install Install .NET Core SDK
-# echo
+echo
+echo 14\) Install Install .NET Core SDK
+echo
 
 # Install .NET Core SDK and initialize package cache
-# wget https://download.visualstudio.microsoft.com/download/pr/3cb1d917-19cc-4399-9a53-03bb5de223f6/be3e011601610d9fe0a4f6b1962378ea/dotnet-sdk-2.2.401-linux-arm.tar.gz
-# mkdir -p /usr/share/dotnet
-# tar -zxf dotnet-sdk-2.2.401-linux-arm64.tar.gz -C /usr/share/dotnet
-# ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
-# dotnet --version
+wget https://download.visualstudio.microsoft.com/download/pr/cbc83a0e-895c-4959-99d9-21cd11596e64/b0e59c2ba2bd3ef0f592acbeae7ab27d/dotnet-sdk-3.0.100-linux-arm64.tar.gz
+mkdir -p /usr/share/dotnet
+tar -zxf dotnet-sdk-3.0.100-linux-arm64.tar.gz -C /usr/share/dotnet
+ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+dotnet --version
 
 # echo
 # echo 15\) Install Node.js
