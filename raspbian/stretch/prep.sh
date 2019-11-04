@@ -13,6 +13,7 @@ apt-get update && \
     dnsutils \
     file \
     ftp \
+    git \
     iproute2 \
     iputils-ping \
     locales \
