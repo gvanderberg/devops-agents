@@ -7,26 +7,26 @@ echo 1\) Install Recommended
 echo
 
 # Install basic command-line utilities
-apt-get update
-apt-get install -y --no-install-recommends \
-  curl \
-  dnsutils \
-  file \
-  ftp \
-  git \
-  iproute2 \
-  iputils-ping \
-  locales \
-  openssh-client \
-  rsync \
-  shellcheck \
-  sudo \
-  telnet \
-  time \
-  unzip \
-  wget \
-  zip \
-  tzdata 
+apt-get update && \
+  apt-get install -y --no-install-recommends \
+    curl \
+    dnsutils \
+    file \
+    ftp \
+    git \
+    iproute2 \
+    iputils-ping \
+    locales \
+    openssh-client \
+    rsync \
+    shellcheck \
+    sudo \
+    telnet \
+    time \
+    unzip \
+    wget \
+    zip \
+    tzdata 
 rm -rf /var/lib/apt/lists/*
 
 # echo
