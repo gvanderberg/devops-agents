@@ -1,11 +1,11 @@
 # devops-agents
 
 ### Ubuntu
-#### AMD64
+##### AMD64
 ```
 curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/ubuntu/18.04/amd64/prep.sh | sudo sh
 ```
-#### ARM64
+##### ARM64
 ```
 curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/ubuntu/18.04/arm64/prep.sh | sudo sh
 ```
