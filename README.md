@@ -1,8 +1,13 @@
 # devops-agents
 
 ### Raspberry Pi
+##### Buster
 ```
-curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspi/buster/prep.sh | sudo sh
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspbian/buster/prep.sh | sudo sh
+```
+##### Stretch
+```
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspbian/stretch/prep.sh | sudo sh
 ```
 
 ### Ubuntu
