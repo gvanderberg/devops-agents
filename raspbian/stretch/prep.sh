@@ -72,17 +72,14 @@ rm -rf /var/lib/apt/lists/*
 # export GOROOT=/usr/local/go1.12.7
 # export PATH=$PATH:$GOROOT/bin
 
-# echo
-# echo 6\) Install Google Chrome
-# echo
+echo
+echo 6\) Install Chromium
+echo
 
-# Install Google Chrome
-# wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add -
-# echo "deb [arch=arm64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list
-# apt-get update
-# apt-get install -y --no-install-recommends google-chrome-stable 
-# rm -rf /var/lib/apt/lists/*
-# rm -rf /etc/apt/sources.list.d/*
+# Install chromium-browser
+apt-get update && \
+  apt-get install -y --no-install-recommends chromium-browser 
+rm -rf /var/lib/apt/lists/*
 
 echo
 echo 7\) Install Docker
