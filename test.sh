@@ -1,5 +1,7 @@
 #!/bin/bash
 
+: ${USE_SUDO:="true"}
+
 # initArch discovers the architecture for this system.
 initArch() {
   ARCH=$(uname -m)
@@ -15,6 +17,18 @@ initArch() {
   esac
 }
 
+# initOS discovers the operating system for this system.
+initOS() {
+  OS=$(echo `uname`|tr '[:upper:]' '[:lower:]')
+
+  case "$OS" in
+    # Minimalist GNU for Windows
+    mingw*) OS='windows';;
+  esac
+}
+
 initArch
+initOS
 
 echo $ARCH
+echo $OS
