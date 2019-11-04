@@ -1,5 +1,10 @@
 # devops-agents
 
+#### Test
+```
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/test.sh | sudo sh
+```
+
 ### Raspberry Pi
 ##### Buster
 ```
