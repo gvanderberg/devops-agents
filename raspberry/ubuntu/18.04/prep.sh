@@ -114,8 +114,6 @@ echo
 # Install Docker
 curl -sSL https://get.docker.com | sh
 rm -rf /etc/apt/sources.list.d/*
-# apt-get install -y --no-install-recommends docker.io
-# docker --version
 
 echo
 echo 10\) Install Helm
@@ -180,12 +178,23 @@ echo 15\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
-wget -qO- https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y --no-install-recommends nodejs
+wget -qO- https://deb.nodesource.com/setup_12.x | -E bash -
+apt-get update && apt-get install -y --no-install-recommends nodejs
 node --version
 
 echo
-echo 16\) Clean up
+echo 16\) Install Yarn
+echo
+
+# Install yarn
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+apt-get update && apt-get install -y --no-install-recommends yarn
+rm -rf /etc/apt/sources.list.d/*
+yarn --version
+
+echo
+echo 17\) Clean up
 echo
 
 apt-get clean
