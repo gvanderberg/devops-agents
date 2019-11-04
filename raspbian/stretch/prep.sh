@@ -76,7 +76,7 @@ rm -rf /var/lib/apt/lists/*
 pwsh --version
 
 # echo
-# echo 5\) Install GO
+# echo 6\) Install GO
 # echo
 
 # Install Go
@@ -88,7 +88,7 @@ pwsh --version
 # export PATH=$PATH:$GOROOT/bin
 
 echo
-echo 6\) Install Chromium
+echo 7\) Install Chromium
 echo
 
 # Install chromium-browser
@@ -97,7 +97,7 @@ apt-get update && \
 rm -rf /var/lib/apt/lists/*
 
 echo
-echo 7\) Install Docker
+echo 8\) Install Docker
 echo
 
 # Install Docker
@@ -105,7 +105,7 @@ curl -sSL https://get.docker.com | sh
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 8\) Install Helm
+echo 9\) Install Helm
 echo
 
 # Install Helm
@@ -113,7 +113,7 @@ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm version --client
 
 echo
-echo 9\) Install Kubectl
+echo 10\) Install Kubectl
 echo
 
 # Install kubectl
@@ -123,7 +123,7 @@ mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 echo
-echo 10\) Install Java OpenJDKs
+echo 11\) Install Java OpenJDKs
 echo
 
 apt-get update && \
@@ -132,7 +132,7 @@ rm -rf /var/lib/apt/lists/*
 java -version
 
 echo
-echo 11\) Install Install .NET Core SDK
+echo 12\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
@@ -146,7 +146,7 @@ ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 12\) Install Node.js
+echo 13\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
@@ -156,7 +156,7 @@ apt-get update && \
 node --version
 
 echo
-echo 13\) Install Yarn
+echo 14\) Install Yarn
 echo
 
 # Install yarn
@@ -168,7 +168,7 @@ rm -rf /etc/apt/sources.list.d/*
 yarn --version
 
 echo
-echo 14\) Clean up
+echo 15\) Clean up
 echo
 
 apt-get clean
