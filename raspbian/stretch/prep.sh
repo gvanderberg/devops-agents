@@ -111,8 +111,8 @@ echo
 echo 10\) Install Java OpenJDKs
 echo
 
-apt-get update
-apt-get install -y --no-install-recommends openjdk-8-jdk
+apt-get update && \
+  apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java -version
 
