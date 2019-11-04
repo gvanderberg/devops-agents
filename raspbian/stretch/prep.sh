@@ -121,13 +121,13 @@ echo 11\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
-apt-get update
-apt-get install -y liblttng-ust0 \
-    libcurl4 \
-    libssl1.0.0 \
-    libkrb5-3 \
-    zlib1g \
-    libicu60 
+apt-get update && \
+  apt-get install -y liblttng-ust0 \
+      libcurl4 \
+      libssl1.0.0 \
+      libkrb5-3 \
+      zlib1g \
+      libicu60 
 curl -LO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
 chmod +x ./dotnet-install.sh
 mkdir -p /usr/share/dotnet
