@@ -28,15 +28,15 @@ apt-get update && \
     tzdata 
 rm -rf /var/lib/apt/lists/*
 
-echo
-echo 2\) Setup the locale
-echo
+# echo
+# echo 2\) Setup the locale
+# echo
 
 # Setup the locale
-export LANG=en_US.UTF-8
-export LC_ALL=$LANG
-locale-gen $LANG
-update-locale
+# export LANG=en_US.UTF-8
+# export LC_ALL=$LANG
+# locale-gen $LANG
+# update-locale
 
 echo
 echo 3\) Install Build Tools
@@ -141,7 +141,19 @@ apt-get update && \
 node --version
 
 echo
-echo 13\) Clean up
+echo 13\) Install Yarn
+echo
+
+# Install yarn
+curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+apt-get update && \
+  apt-get install -y --no-install-recommends yarn
+rm -rf /etc/apt/sources.list.d/*
+yarn --version
+
+echo
+echo 14\) Clean up
 echo
 
 apt-get clean
