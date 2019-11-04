@@ -62,29 +62,7 @@ rm -rf /var/lib/apt/lists/*
 # az --version
 
 # echo
-# echo 5\) Install Clang
-# echo
-
-# Install Clang
-# apt-get update
-# apt-get install -y --no-install-recommends clang-6.0 
-# rm -rf /var/lib/apt/lists/*
-# rm -rf /etc/apt/sources.list.d/*
-
-# echo
-# echo 6\) Install CMake
-# echo
-
-# Install CMake
-# curl -sL https://cmake.org/files/v3.10/cmake-3.10.2-Linux-x86_64.sh -o cmake.sh && chmod +x cmake.sh
-# ./cmake.sh --prefix=/usr/local --exclude-subdir
-# rm cmake.sh
-# apt-get install -y --no-install-recommends cmake
-# rm -rf /var/lib/apt/lists/*
-# rm -rf /etc/apt/sources.list.d/*
-
-# echo
-# echo 7\) Install GO
+# echo 5\) Install GO
 # echo
 
 # Install Go
@@ -96,7 +74,7 @@ rm -rf /var/lib/apt/lists/*
 # export PATH=$PATH:$GOROOT/bin
 
 # echo
-# echo 8\) Install Google Chrome
+# echo 6\) Install Google Chrome
 # echo
 
 # Install Google Chrome
@@ -108,7 +86,7 @@ rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 9\) Install Docker
+echo 7\) Install Docker
 echo
 
 # Install Docker
@@ -116,7 +94,7 @@ curl -sSL https://get.docker.com | sh
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 10\) Install Helm
+echo 8\) Install Helm
 echo
 
 # Install Helm
@@ -124,7 +102,7 @@ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm version --client
 
 echo
-echo 11\) Install Kubectl
+echo 9\) Install Kubectl
 echo
 
 # Install kubectl
@@ -134,7 +112,7 @@ mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 echo
-echo 12\) Install Java OpenJDKs
+echo 10\) Install Java OpenJDKs
 echo
 
 # apt-add-repository -y ppa:openjdk-r/ppa
@@ -143,22 +121,8 @@ apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java --version
 
-# echo
-# echo 13\) Install Mono
-# echo
-
-# Install Mono
-# apt-get install gnupg ca-certificates
-# apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-# echo "deb https://download.mono-project.com/repo/ubuntu stable-$AZ_REPO main" | tee /etc/apt/sources.list.d/mono-official-stable.list
-# apt-get update
-# apt-get install -y --no-install-recommends mono-complete
-# rm -rf /var/lib/apt/lists/*
-# rm -rf /etc/apt/sources.list.d/*
-# mono --version
-
 echo
-echo 14\) Install Install .NET Core SDK
+echo 11\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
@@ -174,12 +138,12 @@ chmod +x ./dotnet-install.sh
 mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
-# ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 15\) Install Node.js
+echo 12\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
@@ -188,7 +152,7 @@ apt-get update && apt-get install -y --no-install-recommends nodejs
 node --version
 
 echo
-echo 16\) Install Yarn
+echo 13\) Install Yarn
 echo
 
 # Install yarn
@@ -199,7 +163,7 @@ rm -rf /etc/apt/sources.list.d/*
 yarn --version
 
 echo
-echo 17\) Clean up
+echo 14\) Clean up
 echo
 
 apt-get clean
