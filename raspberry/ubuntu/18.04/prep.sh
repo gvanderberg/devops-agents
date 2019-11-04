@@ -61,8 +61,22 @@ rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 # az --version
 
+echo
+echo 5\) Install Powershell Core
+echo
+
+# Install Powershell Core (instructions taken from https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6#raspbian)
+apt-get update && \
+  apt-get install -y '^libssl1.0.[0-9]$' libunwind8 
+wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-linux-arm64.tar.gz
+mkdir -p /usr/share/powershell
+tar -xvf ./powershell-6.2.3-linux-arm64.tar.gz -C /usr/share/powershell
+ln -s /usr/share/powershell/pwsh /usr/bin/pwsh
+rm -rf /var/lib/apt/lists/*
+# pwsh --version
+
 # echo
-# echo 5\) Install GO
+# echo 6\) Install GO
 # echo
 
 # Install Go
@@ -74,7 +88,7 @@ rm -rf /var/lib/apt/lists/*
 # export PATH=$PATH:$GOROOT/bin
 
 # echo
-# echo 6\) Install Google Chrome
+# echo 7\) Install Google Chrome
 # echo
 
 # Install Google Chrome
@@ -86,7 +100,7 @@ rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 7\) Install Docker
+echo 8\) Install Docker
 echo
 
 # Install Docker
@@ -94,7 +108,7 @@ curl -sSL https://get.docker.com | sh
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 8\) Install Helm
+echo 9\) Install Helm
 echo
 
 # Install Helm
@@ -102,7 +116,7 @@ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm version --client
 
 echo
-echo 9\) Install Kubectl
+echo 10\) Install Kubectl
 echo
 
 # Install kubectl
@@ -112,7 +126,7 @@ mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 echo
-echo 10\) Install Java OpenJDKs
+echo 11\) Install Java OpenJDKs
 echo
 
 # apt-add-repository -y ppa:openjdk-r/ppa
@@ -122,7 +136,7 @@ rm -rf /var/lib/apt/lists/*
 java --version
 
 echo
-echo 11\) Install Install .NET Core SDK
+echo 12\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
@@ -143,7 +157,7 @@ ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 12\) Install Node.js
+echo 13\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
@@ -152,7 +166,7 @@ apt-get update && apt-get install -y --no-install-recommends nodejs
 node --version
 
 echo
-echo 13\) Install Yarn
+echo 14\) Install Yarn
 echo
 
 # Install yarn
@@ -163,7 +177,7 @@ rm -rf /etc/apt/sources.list.d/*
 yarn --version
 
 echo
-echo 14\) Clean up
+echo 15\) Clean up
 echo
 
 apt-get clean
