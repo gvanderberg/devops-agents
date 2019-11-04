@@ -136,7 +136,8 @@ echo
 
 # Install LTS Node.js and related tools
 wget -qO- https://deb.nodesource.com/setup_12.x | -E bash -
-apt-get update && apt-get install -y --no-install-recommends nodejs
+apt-get update && \
+  apt-get install -y --no-install-recommends nodejs
 node --version
 
 echo
