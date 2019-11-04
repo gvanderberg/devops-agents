@@ -157,21 +157,26 @@ java --version
 # rm -rf /etc/apt/sources.list.d/*
 # mono --version
 
-# echo
-# echo 14\) Install Install .NET Core SDK
-# echo
+echo
+echo 14\) Install Install .NET Core SDK
+echo
 
 # Install .NET Core SDK and initialize package cache
-# apt-get update
-# apt-get install -y libunwind8
-# wget https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
-# chmod +x ./dotnet-install.sh
-# mkdir -p /usr/share/dotnet
-# ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
-# ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
+apt-get update
+apt-get install -y liblttng-ust0 \
+    libcurl4 \
+    libssl1.0.0 \
+    libkrb5-3 \
+    zlib1g \
+    libicu60 
+curl -LO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
+chmod +x ./dotnet-install.sh
+mkdir -p /usr/share/dotnet
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
 # ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
-# ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
-# dotnet --version
+ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+dotnet --version
 
 echo
 echo 15\) Install Node.js
