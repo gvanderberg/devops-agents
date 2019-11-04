@@ -5,7 +5,7 @@
 curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/ubuntu/prep.sh | sudo sh
 ```
 
-### Raspbian
+### Raspberry Pi
 ```
-curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspbian/armhf/prep.sh | sudo sh
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspberry/ubuntu/18.04/prep.sh | sudo sh
 ```
