@@ -32,3 +32,4 @@ initOS
 
 echo $ARCH
 echo $OS
+echo 'use sudo: $USE_SUDO'
