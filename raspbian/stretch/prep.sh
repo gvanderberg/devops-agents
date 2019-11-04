@@ -127,6 +127,7 @@ echo
 echo 11\) Install Mono
 echo
 
+# Install Mono
 apt-get update && \
   apt-get install -y --no-install-recommends mono-complete
 rm -rf /var/lib/apt/lists/*
@@ -136,6 +137,7 @@ echo
 echo 12\) Install Java OpenJDKs
 echo
 
+# Install Java JDK
 apt-get update && \
   apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
