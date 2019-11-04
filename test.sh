@@ -27,9 +27,21 @@ initOS() {
   esac
 }
 
+# runs the given command as root (detects if we are root already)
+runAsRoot() {
+  local CMD="$*"
+
+  if [ $EUID -ne 0 -a $USE_SUDO = "true" ]; then
+    CMD="sudo $CMD"
+  fi
+
+  $CMD
+}
+
 initArch
 initOS
+runAsRoot
 
 echo $ARCH
 echo $OS
-echo 'use sudo: $USE_SUDO'
+echo $CMD
