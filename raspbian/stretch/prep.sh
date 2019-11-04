@@ -44,8 +44,8 @@ echo 3\) Install Build Tools
 echo
 
 # Install essential build tools
-apt-get update
-apt-get install -y --no-install-recommends build-essential 
+apt-get update && \
+  apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
 # echo
