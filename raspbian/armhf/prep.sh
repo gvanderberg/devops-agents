@@ -48,18 +48,18 @@ apt-get update
 apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
-# echo
-# echo 4\) Install Azure CLI
-# echo
+echo
+echo 4\) Install Azure CLI
+echo
 
 # Install Azure CLI (instructions taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-# echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
-# curl -L https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
-# apt-get update
-# apt-get install -y --no-install-recommends apt-transport-https azure-cli 
-# rm -rf /var/lib/apt/lists/*
-# rm -rf /etc/apt/sources.list.d/*
-# az --version
+echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
+curl -L https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+apt-get update
+apt-get install -y --no-install-recommends apt-transport-https azure-cli 
+rm -rf /var/lib/apt/lists/*
+rm -rf /etc/apt/sources.list.d/*
+az --version
 
 # echo
 # echo 5\) Install Clang
@@ -130,7 +130,7 @@ echo 11\) Install Kubectl
 echo
 
 # Install kubectl
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm/kubectl
+curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/arm64/kubectl
 chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
@@ -159,29 +159,29 @@ java --version
 # rm -rf /etc/apt/sources.list.d/*
 # mono --version
 
-echo
-echo 14\) Install Install .NET Core SDK
-echo
+# echo
+# echo 14\) Install Install .NET Core SDK
+# echo
 
 # Install .NET Core SDK and initialize package cache
-apt-get update
-apt-get install -y libunwind8
-wget https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
-chmod +x ./dotnet-install.sh
-mkdir -p /usr/share/dotnet
-./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
-./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
-./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
-ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
-dotnet --version
+# apt-get update
+# apt-get install -y libunwind8
+# wget https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
+# chmod +x ./dotnet-install.sh
+# mkdir -p /usr/share/dotnet
+# ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
+# ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
+# ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
+# ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+# dotnet --version
 
 echo
 echo 15\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
-curl -sL https://git.io/n-install | bash -s -- -ny - lts
-rm -rf ~/n
+wget -qO- https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y --no-install-recommends nodejs
 node --version
 
 echo
