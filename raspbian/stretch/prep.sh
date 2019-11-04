@@ -60,6 +60,21 @@ rm -rf /var/lib/apt/lists/*
 # rm -rf /etc/apt/sources.list.d/*
 # az --version
 
+echo
+echo 5\) Install Powershell Core
+echo
+
+# Install Powershell Core (instructions taken from https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6#raspbian)
+apt-get update && \
+  apt-get install -y '^libssl1.0.[0-9]$' libunwind8 
+wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-linux-arm32.tar.gz
+mkdir -p /usr/share/powershell
+tar -xvf ./powershell-6.2.3-linux-arm32.tar.gz -C /usr/share/powershell
+rm -f ./powershell-6.2.3-linux-arm32.tar.gz
+ln -s /usr/share/powershell/pwsh /usr/bin/pwsh
+rm -rf /var/lib/apt/lists/*
+pwsh --version
+
 # echo
 # echo 5\) Install GO
 # echo
