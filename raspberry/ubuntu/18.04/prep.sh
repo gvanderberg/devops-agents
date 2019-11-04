@@ -71,9 +71,10 @@ apt-get update && \
 wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-linux-arm64.tar.gz
 mkdir -p /usr/share/powershell
 tar -xvf ./powershell-6.2.3-linux-arm64.tar.gz -C /usr/share/powershell
+rm -f ./powershell-6.2.3-linux-arm64.tar.gz
 ln -s /usr/share/powershell/pwsh /usr/bin/pwsh
 rm -rf /var/lib/apt/lists/*
-# pwsh --version
+pwsh --version
 
 # echo
 # echo 6\) Install GO
