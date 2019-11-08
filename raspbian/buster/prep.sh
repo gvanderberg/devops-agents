@@ -131,7 +131,7 @@ echo
 apt-get update
 apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
-java --version
+java -version
 
 echo
 echo 12\) Install Install .NET Core SDK

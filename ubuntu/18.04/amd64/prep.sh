@@ -49,7 +49,7 @@ echo
 echo 4\) Install Azure CLI
 echo
 
-curl -sSLO https://aka.ms/InstallAzureCLIDeb | bash
+curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 az --version
 
 echo
@@ -68,14 +68,14 @@ echo 6\) Install Docker
 echo
 
 # Install Docker
-curl -sSLO https://get.docker.com | sh
+curl -fsSL https://get.docker.com | bash
 
 echo
 echo 7\) Install Helm
 echo
 
 # Install Helm
-curl -sSLO https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+curl -fsSL https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm version --client
 
 echo
@@ -96,7 +96,7 @@ apt-add-repository -y ppa:openjdk-r/ppa
 apt-get update && \
     apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
-java --version
+java -version
 
 echo
 echo 10\) Install .NET Core SDK
@@ -126,23 +126,26 @@ echo
 echo 12\) Install Node.js
 echo
 
-curl -sSLO https://git.io/n-install | bash -s -- -ny - && ~/n/bin/n lts 
-npm install -g bower 
-npm install -g grunt 
-npm install -g gulp 
-npm install -g n 
-npm install -g webpack webpack-cli --save-dev 
-npm install -g parcel-bundler 
-npm i -g npm 
-rm -rf ~/n
+# Install LTS Node.js and related tools
+wget -qO- https://deb.nodesource.com/setup_12.x | bash
+apt-get update && \
+    apt-get install -y --no-install-recommends nodejs && \
+    npm install -g bower && \
+    npm install -g grunt && \
+    npm install -g gulp && \
+    npm install -g n && \
+    npm install -g webpack webpack-cli --save-dev && \
+    npm install -g parcel-bundler && \
+    npm i -g npm 
+rm -rf /var/lib/apt/lists/* 
 node --version
 
 echo
 echo 13\) Install Powershell Core
 echo
 
-curl -sSLO https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
-curl -sSLO https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
+curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
+curl -fsSL https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
 apt-get update && \
     apt-get install -y --no-install-recommends powershell 
 rm -rf /var/lib/apt/lists/* 
@@ -162,7 +165,7 @@ echo
 echo 15\) Install yarn
 echo
 
-curl -sSLO https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
+curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list 
 apt-get update && \
     apt-get install -y --no-install-recommends yarn 
