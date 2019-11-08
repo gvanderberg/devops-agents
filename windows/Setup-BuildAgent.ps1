@@ -9,6 +9,12 @@ switch ($OSVersion)
   {
     choco install -y docker-desktop
   }
+  "Windows Server 2016 Datacenter"
+  {
+    Install-Module -Name DockerMsftProvider -Force
+    Install-Package Docker -ProviderName DockerMsftProvider -Force
+    (Install-WindowsFeature Containers).RestartNeeded
+  }
   "Windows Server 2016 Standard"
   {
     Install-Module -Name DockerMsftProvider -Force
