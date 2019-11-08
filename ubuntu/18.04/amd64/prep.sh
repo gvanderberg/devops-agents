@@ -7,26 +7,26 @@ echo 1\) Install Recommended
 echo
 
 # Install basic command-line utilities
-apt-get update
-apt-get install -y --no-install-recommends \
-    curl \
-    dnsutils \
-    file \
-    ftp \
-    iproute2 \
-    iputils-ping \
-    locales \
-    openssh-client \
-    rsync\
-    shellcheck \
-    sudo \
-    telnet \
-    time \
-    unzip \
-    wget \
-    zip \
-    tzdata \
-    && rm -rf /var/lib/apt/lists/*
+apt-get update && \
+    apt-get install -y --no-install-recommends \
+        curl \
+        dnsutils \
+        file \
+        ftp \
+        iproute2 \
+        iputils-ping \
+        locales \
+        openssh-client \
+        rsync\
+        shellcheck \
+        sudo \
+        telnet \
+        time \
+        unzip \
+        wget \
+        zip \
+        tzdata
+rm -rf /var/lib/apt/lists/*
 
 echo
 echo 2\) Setup the locale
@@ -41,8 +41,8 @@ echo
 echo 3\) Install Build Tools
 echo
 
-apt-get update
-apt-get install -y --no-install-recommends build-essential 
+apt-get update && \
+    apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
 echo
@@ -58,8 +58,8 @@ echo
 
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list 
-apt-get update
-apt-get install -y google-chrome-stable
+apt-get update && \
+    apt-get install -y google-chrome-stable
 rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 
@@ -93,11 +93,8 @@ echo 9\) Install Java OpenJDKs
 echo
 
 apt-add-repository -y ppa:openjdk-r/ppa
-apt-get update
-apt-get install -y --no-install-recommends openjdk-11-jdk
-rm -rf /var/lib/apt/lists/*
-apt-get update
-apt-get install -y --no-install-recommends openjdk-12-jdk
+apt-get update && \
+    apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java --version
 
@@ -105,13 +102,13 @@ echo
 echo 10\) Install .NET Core SDK
 echo
 
-curl https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb > packages-microsoft-prod.deb 
-dpkg -i packages-microsoft-prod.deb
-rm packages-microsoft-prod.deb 
-apt-get update 
-apt-get install -y --no-install-recommends apt-transport-https dotnet-sdk-2.2 
-rm -rf /var/lib/apt/lists/* 
-rm -rf /etc/apt/sources.list.d/*
+curl -LO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
+chmod +x ./dotnet-install.sh
+mkdir -p /usr/share/dotnet
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
+ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
@@ -119,9 +116,9 @@ echo 11\) Install AzCopy
 echo
 
 apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF 
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod/ xenial main" | tee /etc/apt/sources.list.d/azure.list 
-apt-get update 
-apt-get install -y --no-install-recommends azcopy 
+echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod/ bionic main" | tee /etc/apt/sources.list.d/azure.list 
+apt-get update && \
+    apt-get install -y --no-install-recommends azcopy 
 rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 
@@ -145,25 +142,35 @@ echo 13\) Install Powershell Core
 echo
 
 curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
-curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
-apt-get update 
-apt-get install -y --no-install-recommends powershell 
+curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
+apt-get update && \
+    apt-get install -y --no-install-recommends powershell 
 rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 14\) Install yarn
+echo 14\) Install Terraform
+echo
+
+apt-get update && \
+    apt-get install -y --no-install-recommends wget unzip 
+wget https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_linux_amd64.zip
+unzip ./terraform_0.12.13_linux_amd64.zip -d /usr/local/bin/
+terraform --version
+
+echo
+echo 15\) Install yarn
 echo
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list 
-apt-get update 
-apt-get install -y --no-install-recommends yarn 
+apt-get update && \
+    apt-get install -y --no-install-recommends yarn 
 rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 15\) Clean system
+echo 16\) Clean system
 echo
 
 apt-get clean 
