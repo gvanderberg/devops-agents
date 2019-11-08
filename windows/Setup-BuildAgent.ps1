@@ -24,7 +24,9 @@ switch ($OSVersion)
 }
 
 choco install -y azure-cli
-#choco install -y dotnetcore-sdk
+choco install -y dotnetcore-sdk --version=2.1.802
+choco install -y dotnetcore-sdk --version=2.2.402
+choco install -y dotnetcore-sdk --version=3.0.100
 choco install -y git.install
 choco install -y jdk8
 choco install -y kubernetes-cli
