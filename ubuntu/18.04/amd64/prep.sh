@@ -49,7 +49,7 @@ echo
 echo 4\) Install Azure CLI
 echo
 
-curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+curl -sSLO https://aka.ms/InstallAzureCLIDeb | bash
 az --version
 
 echo
@@ -68,14 +68,14 @@ echo 6\) Install Docker
 echo
 
 # Install Docker
-curl -sSL https://get.docker.com | sh
+curl -sSLO https://get.docker.com | sh
 
 echo
 echo 7\) Install Helm
 echo
 
 # Install Helm
-curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+curl -sSLO https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm version --client
 
 echo
@@ -83,7 +83,7 @@ echo 8\) Install Kubectl
 echo
 
 # Install kubectl
-curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
+curl -sSLO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl
 chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
@@ -102,7 +102,7 @@ echo
 echo 10\) Install .NET Core SDK
 echo
 
-curl -LO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
+curl -sSLO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
 chmod +x ./dotnet-install.sh
 mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
@@ -126,7 +126,7 @@ echo
 echo 12\) Install Node.js
 echo
 
-curl -sL https://git.io/n-install | bash -s -- -ny - && ~/n/bin/n lts 
+curl -sSLO https://git.io/n-install | bash -s -- -ny - && ~/n/bin/n lts 
 npm install -g bower 
 npm install -g grunt 
 npm install -g gulp 
@@ -141,8 +141,8 @@ echo
 echo 13\) Install Powershell Core
 echo
 
-curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
-curl https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
+curl -sSLO https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
+curl -sSLO https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
 apt-get update && \
     apt-get install -y --no-install-recommends powershell 
 rm -rf /var/lib/apt/lists/* 
@@ -162,7 +162,7 @@ echo
 echo 15\) Install yarn
 echo
 
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
+curl -sSLO https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list 
 apt-get update && \
     apt-get install -y --no-install-recommends yarn 
