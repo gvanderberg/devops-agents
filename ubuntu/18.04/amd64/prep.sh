@@ -112,18 +112,7 @@ ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 11\) Install AzCopy
-echo
-
-apt-key adv --keyserver packages.microsoft.com --recv-keys EB3E94ADBE1229CF 
-echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-bionic-prod/ bionic main" | tee /etc/apt/sources.list.d/azure.list 
-apt-get update && \
-    apt-get install -y --no-install-recommends azcopy 
-rm -rf /var/lib/apt/lists/* 
-rm -rf /etc/apt/sources.list.d/*
-
-echo
-echo 12\) Install Node.js
+echo 11\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
@@ -141,7 +130,7 @@ rm -rf /var/lib/apt/lists/*
 node --version
 
 echo
-echo 13\) Install Powershell Core
+echo 12\) Install Powershell Core
 echo
 
 curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
@@ -152,7 +141,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 14\) Install Terraform
+echo 13\) Install Terraform
 echo
 
 apt-get update && \
@@ -162,7 +151,7 @@ unzip ./terraform_0.12.13_linux_amd64.zip -d /usr/local/bin/
 terraform --version
 
 echo
-echo 15\) Install yarn
+echo 14\) Install yarn
 echo
 
 curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
@@ -173,7 +162,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 16\) Clean system
+echo 15\) Clean system
 echo
 
 apt-get clean 
