@@ -8,10 +8,10 @@ param (
 
 Write-Host "start"
 
-if (Test-Path "$drive:\agents")
-{
-    Remove-Item -Path "$drive:\agents" -Force -Confirm:$false -Recurse
-}
+# if (Test-Path "$drive:\agents")
+# {
+#     Remove-Item -Path "$drive:\agents" -Force -Confirm:$false -Recurse
+# }
 
 # New-Item -ItemType Directory -Force -Path "$drive:\agents"
 
