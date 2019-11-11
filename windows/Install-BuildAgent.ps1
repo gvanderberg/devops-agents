@@ -30,4 +30,4 @@ Write-Host "start"
 # Expand-Archive -Path agent.zip -DestinationPath $PWD
 # .\config.cmd --unattended --url $URL --auth pat --token $PAT --pool $POOL --agent $AGENT --acceptTeeEula --runAsService
 
-exit 0
+# exit 0
