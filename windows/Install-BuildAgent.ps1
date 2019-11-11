@@ -1,10 +1,10 @@
-param (
+# param (
 #    [string]$url,
 #    [string]$pat,
 #    [string]$pool,
 #    [string]$agent,
-    [string]$drive
-)
+#    [string]$drive
+# )
 
 Write-Host "start"
 
