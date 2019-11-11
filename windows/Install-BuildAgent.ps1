@@ -6,7 +6,7 @@
 #    [string]$drive
 # )
 
-Write-Host "start"
+Write-Host "start " $drive
 
 # if (Test-Path "$drive:\agents")
 # {
