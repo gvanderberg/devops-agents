@@ -11,15 +11,17 @@ switch ($OSVersion)
   }
   "Windows Server 2016 Standard"
   {
+    Install-PackageProvider -Name NuGet -Force
     Install-Module -Name DockerMsftProvider -Force
     Install-Package Docker -ProviderName DockerMsftProvider -Force
     (Install-WindowsFeature Containers).RestartNeeded
   }
   default 
   {
+    Install-PackageProvider -Name NuGet -Force
     Install-Module -Name DockerMsftProvider -Force
     Install-Package Docker -ProviderName DockerMsftProvider -Force
-    (Install-WindowsFeature Containers).RestartNeeded  
+    (Install-WindowsFeature Containers).RestartNeeded
   }
 }
 
