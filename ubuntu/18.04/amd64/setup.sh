@@ -162,7 +162,17 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 15\) Clean system
+echo 15\) Install Mono
+echo
+
+# Install Mono
+apt-get update && \
+  apt-get install -y --no-install-recommends mono-complete
+rm -rf /var/lib/apt/lists/*
+mono --version
+
+echo
+echo 16\) Clean system
 echo
 
 apt-get clean 
