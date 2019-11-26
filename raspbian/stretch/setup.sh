@@ -124,17 +124,7 @@ mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 echo
-echo 11\) Install Mono
-echo
-
-# Install Mono
-apt-get update && \
-  apt-get install -y --no-install-recommends mono-complete
-rm -rf /var/lib/apt/lists/*
-mono --version
-
-echo
-echo 12\) Install Java OpenJDKs
+echo 11\) Install Java OpenJDKs
 echo
 
 # Install Java JDK
@@ -144,7 +134,7 @@ rm -rf /var/lib/apt/lists/*
 java -version
 
 echo
-echo 13\) Install Install .NET Core SDK
+echo 12\) Install Install .NET Core SDK
 echo
 
 # Install .NET Core SDK and initialize package cache
@@ -158,7 +148,7 @@ ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 14\) Install Node.js
+echo 13\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
@@ -168,7 +158,7 @@ apt-get update && \
 node --version
 
 echo
-echo 15\) Install Yarn
+echo 14\) Install Yarn
 echo
 
 # Install yarn
@@ -180,7 +170,7 @@ rm -rf /etc/apt/sources.list.d/*
 yarn --version
 
 echo
-echo 16\) Install Mono
+echo 15\) Install Mono
 echo
 
 # Install Mono
@@ -190,7 +180,7 @@ rm -rf /var/lib/apt/lists/*
 mono --version
 
 echo
-echo 17\) Clean up
+echo 16\) Clean up
 echo
 
 apt-get clean
