@@ -8,11 +8,11 @@ curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/te
 ### Raspberry Pi
 ##### Buster
 ```
-curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspbian/buster/prep.sh | sudo sh
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspbian/buster/setup.sh | sudo sh
 ```
 ##### Stretch
 ```
-curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspbian/stretch/prep.sh | sudo sh
+curl -sLSf https://raw.githubusercontent.com/gvanderberg/devops-agents/master/raspbian/stretch/setup.sh | sudo sh
 ```
 
 ### Ubuntu
