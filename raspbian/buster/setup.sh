@@ -175,7 +175,17 @@ rm -rf /etc/apt/sources.list.d/*
 yarn --version
 
 echo
-echo 15\) Clean up
+echo 15\) Install Mono
+echo
+
+# Install Mono
+apt-get update && \
+  apt-get install -y --no-install-recommends mono-complete
+rm -rf /var/lib/apt/lists/*
+mono --version
+
+echo
+echo 16\) Clean up
 echo
 
 apt-get clean
