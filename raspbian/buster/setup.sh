@@ -151,6 +151,7 @@ mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.100 --verbose
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
