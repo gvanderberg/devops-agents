@@ -168,12 +168,34 @@ echo
 
 # Install Mono
 apt-get update && \
-  apt-get install -y --no-install-recommends mono-complete
+    apt-get install -y --no-install-recommends \
+        mono-complete
 rm -rf /var/lib/apt/lists/*
 mono --version
 
 echo
-echo 16\) Clean system
+echo 16\) Install Python
+echo
+
+# Install Python
+add-apt-repository -y ppa:deadsnakes/ppa
+apt-get update && \
+    apt-get install -y --no-install-recommends \
+        python2.7 \
+        python3.5 \
+        python3.6 \
+        python3.7
+
+#apt-get update && \
+#    apt-get install -y --no-install-recommends \
+#        python \
+#        python-pip \
+#        python3 \
+#        python3-pip
+# rm -rf /var/lib/apt/lists/*
+
+echo
+echo 17\) Clean system
 echo
 
 apt-get clean 
