@@ -178,19 +178,20 @@ echo 16\) Install Python
 echo
 
 # Install Python
-add-apt-repository -y ppa:deadsnakes/ppa
-apt-get update && \
-    apt-get install -y --no-install-recommends \
-        python2.7 \
-        python3.5 \
-        python3.6 \
-        python3.7
+#add-apt-repository -y ppa:deadsnakes/ppa
+#apt-get update && \
+#    apt-get install -y --no-install-recommends \
+#        python2.7 \
+#        python3.5 \
+#        python3.6 \
+#        python3.7
 
 #apt-get update && \
 #    apt-get install -y --no-install-recommends \
 #        python \
 #        python-pip \
 #        python3 \
+#        python3-dev \
 #        python3-pip
 # rm -rf /var/lib/apt/lists/*
 
