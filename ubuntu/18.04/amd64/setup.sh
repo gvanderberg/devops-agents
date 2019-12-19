@@ -42,7 +42,8 @@ echo 3\) Install Build Tools
 echo
 
 apt-get update && \
-    apt-get install -y --no-install-recommends build-essential 
+    apt-get install -y --no-install-recommends \
+        build-essential 
 rm -rf /var/lib/apt/lists/*
 
 echo
@@ -94,7 +95,8 @@ echo
 
 apt-add-repository -y ppa:openjdk-r/ppa
 apt-get update && \
-    apt-get install -y --no-install-recommends openjdk-8-jdk
+    apt-get install -y --no-install-recommends \
+        openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java -version
 
@@ -137,7 +139,8 @@ echo
 curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
 curl -fsSL https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
 apt-get update && \
-    apt-get install -y --no-install-recommends powershell 
+    apt-get install -y --no-install-recommends \
+        powershell 
 rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 
@@ -145,8 +148,6 @@ echo
 echo 13\) Install Terraform
 echo
 
-apt-get update && \
-    apt-get install -y --no-install-recommends wget unzip 
 wget https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_linux_amd64.zip
 unzip ./terraform_0.12.13_linux_amd64.zip -d /usr/local/bin/
 terraform --version
@@ -158,7 +159,8 @@ echo
 curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list 
 apt-get update && \
-    apt-get install -y --no-install-recommends yarn 
+    apt-get install -y --no-install-recommends \
+        yarn 
 rm -rf /var/lib/apt/lists/* 
 rm -rf /etc/apt/sources.list.d/*
 
