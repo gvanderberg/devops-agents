@@ -28,8 +28,13 @@ New-Item -ItemType Directory -Force -Path $destinationPath
 Write-Host $destinationPath
 # Set-Location $destinationPath
 
+Write-Host "Release "${tag}" appears to be latest" 
+Write-Host "Downloading..."
+
 Invoke-WebRequest $agentUrl -Out agent.zip
 Expand-Archive -Path agent.zip -DestinationPath $destinationPath
+
+Write-Host "extracted"
 
 & $destinationPath\config.cmd --unattended --replace --url $url --auth pat --token $token --pool $pool --agent $agent --acceptTeeEula --runAsService
 
