@@ -23,7 +23,7 @@ chmod -R 777 $DESTINATION
 
 echo "extracted"
 
-./bin/installdependencies.sh
+$DESTINATION/bin/installdependencies.sh
 
 echo "dependencies installed"
 
