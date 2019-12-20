@@ -16,7 +16,7 @@ $tag = $tag.Substring(1)
 
 $agentUrl = "https://vstsagentpackage.azureedge.net/agent/$tag/vsts-agent-win-x64-$tag.zip"
 
-Write-Host "Drive: $drive `nURL: $url `nToken: $token `nPool: $pool `nAgent: $agent `nAgentVersion: $tag `nAgentUrl: $agentUrl" 
+Write-Host "0. URL: $url `n1. Token: $token `n2. Pool: $pool `n3. Agent: $agent `n4. Path: $destinationPath `nAgentVersion: $tag `nAgentUrl: $agentUrl" 
 
 if (Test-Path $destinationPath) {
     Write-Host "Deleteing folder " $destinationPath
