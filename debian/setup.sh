@@ -59,3 +59,13 @@ apt-get update && \
         zip \
         tzdata
 rm -rf /var/lib/apt/lists/*
+
+echo
+echo 2\) Setup the locale
+echo
+
+export LANG=en_ZA.UTF-8
+export LC_ALL=$LANG
+
+locale-gen $LANG
+update-locale
