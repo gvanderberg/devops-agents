@@ -79,12 +79,39 @@ apt-get update && \
         build-essential 
 rm -rf /var/lib/apt/lists/*
 
+# echo
+# echo 4\) Install Azure CLI
+# echo
+
+# apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#         azure-cli 
+# rm -rf /var/lib/apt/lists/*
+# az --version
+
+# echo
+# echo 5\) Install Google Chrome
+# echo
+
+# wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+# echo "deb [arch=$ARCH] http://dl.google.com/linux/chrome/deb/ $AZ_REPO main" | tee /etc/apt/sources.list.d/google-chrome.list 
+# apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#       google-chrome-stable
+# rm -rf /var/lib/apt/lists/* 
+# rm -rf /etc/apt/sources.list.d/*
+
 echo
-echo 4\) Install Azure CLI
+echo 6\) Install Docker
 echo
 
-apt-get update && \
-    apt-get install -y --no-install-recommends \
-        azure-cli 
-rm -rf /var/lib/apt/lists/*
-az --version
+# Install Docker
+curl -fsSL https://get.docker.com | bash
+
+echo
+echo 7\) Install Helm
+echo
+
+# Install Helm
+curl -fsSL https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
+helm version --client
