@@ -185,7 +185,7 @@ echo
 echo 13\) Install Terraform
 echo
 
-VERSION=$(curl -sL https://releases.hashicorp.com/terraform | grep -v beta | grep -Po "_(\d*\.?){3}" | sed 's/_//' | sort -V | tail -1)
+VERSION="$(curl -sL https://releases.hashicorp.com/terraform | grep -v beta | grep -Po "_(\d*\.?){3}" | sed 's/_//' | sort -V | tail -1)"
 wget https://releases.hashicorp.com/terraform/$VERSION/terraform_$VERSION_linux_$ARCH.zip
 unzip ./terraform_$VERSION_linux_$ARCH.zip -d /usr/local/bin/
 terraform --version
