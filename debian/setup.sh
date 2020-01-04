@@ -136,3 +136,17 @@ apt-get update && \
         openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java -version
+
+echo
+echo 10\) Install .NET Core SDK
+echo
+
+curl -sSLO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
+chmod +x ./dotnet-install.sh
+mkdir -p /usr/share/dotnet
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
+# ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.100 --verbose
+ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
+dotnet --version
