@@ -40,24 +40,24 @@ echo
 
 # Install basic command-line utilities
 apt-get update && \
-    apt-get install -y --no-install-recommends \
-        curl \
-        dnsutils \
-        file \
-        ftp \
-        iproute2 \
-        iputils-ping \
-        locales \
-        openssh-client \
-        rsync\
-        shellcheck \
-        sudo \
-        telnet \
-        time \
-        unzip \
-        wget \
-        zip \
-        tzdata
+  apt-get install -y --no-install-recommends \
+    curl \
+    dnsutils \
+    file \
+    ftp \
+    iproute2 \
+    iputils-ping \
+    locales \
+    openssh-client \
+    rsync\
+    shellcheck \
+    sudo \
+    telnet \
+    time \
+    unzip \
+    wget \
+    zip \
+    tzdata
 rm -rf /var/lib/apt/lists/*
 
 echo
@@ -75,8 +75,8 @@ echo 3\) Install Build Tools
 echo
 
 apt-get update && \
-    apt-get install -y --no-install-recommends \
-        build-essential 
+  apt-get install -y --no-install-recommends \
+    build-essential 
 rm -rf /var/lib/apt/lists/*
 
 # echo
@@ -132,8 +132,8 @@ echo
 
 # apt-add-repository -y ppa:openjdk-r/ppa
 apt-get update && \
-    apt-get install -y --no-install-recommends \
-        openjdk-8-jdk
+  apt-get install -y --no-install-recommends \
+    openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java -version
 
@@ -188,3 +188,56 @@ VERSION="$(curl -sL https://releases.hashicorp.com/terraform | grep -v beta | gr
 wget https://releases.hashicorp.com/terraform/$VERSION/terraform_"$VERSION"_linux_"$ARCH".zip
 unzip ./terraform_"$VERSION"_linux_"$ARCH".zip -d /usr/local/bin/
 terraform --version
+
+echo
+echo 14\) Install yarn
+echo
+
+curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list 
+apt-get update && \
+  apt-get install -y --no-install-recommends \
+    yarn 
+rm -rf /var/lib/apt/lists/* 
+rm -rf /etc/apt/sources.list.d/*
+
+echo
+echo 15\) Install Mono
+echo
+
+# Install Mono
+apt-get update && \
+  apt-get install -y --no-install-recommends \
+    mono-complete
+rm -rf /var/lib/apt/lists/*
+mono --version
+
+echo
+echo 16\) Install Python
+echo
+
+# Install Python
+#add-apt-repository -y ppa:deadsnakes/ppa
+#apt-get update && \
+#    apt-get install -y --no-install-recommends \
+#        python2.7 \
+#        python3.5 \
+#        python3.6 \
+#        python3.7
+
+apt-get update && \
+  apt-get install -y --no-install-recommends \
+    python \
+    python-pip \
+    python3 \
+    python3-dev \
+    python3-pip
+ rm -rf /var/lib/apt/lists/*
+
+echo
+echo 17\) Clean system
+echo
+
+apt-get clean 
+rm -rf /var/lib/apt/lists/* 
+rm -rf /etc/apt/sources.list.d/*
