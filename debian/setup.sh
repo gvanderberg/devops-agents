@@ -1,5 +1,7 @@
 #!/bin/bash
 
+AZ_REPO=$(lsb_release -cs)
+
 # initArch discovers the architecture for this system.
 initArch() {
   ARCH=$(uname -m)
@@ -30,3 +32,4 @@ initOS
 
 echo $ARCH
 echo $OS
+echo $AZ_REPO
