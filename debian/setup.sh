@@ -126,3 +126,13 @@ chmod +x ./kubectl
 mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
+echo
+echo 9\) Install Java OpenJDKs
+echo
+
+apt-add-repository -y ppa:openjdk-r/ppa
+apt-get update && \
+    apt-get install -y --no-install-recommends \
+        openjdk-8-jdk
+rm -rf /var/lib/apt/lists/*
+java -version
