@@ -130,7 +130,7 @@ echo
 echo 9\) Install Java OpenJDKs
 echo
 
-apt-add-repository -y ppa:openjdk-r/ppa
+# apt-add-repository -y ppa:openjdk-r/ppa
 apt-get update && \
     apt-get install -y --no-install-recommends \
         openjdk-8-jdk
@@ -150,3 +150,42 @@ mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.100 --verbose
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
+
+echo
+echo 11\) Install Node.js
+echo
+
+# Install LTS Node.js and related tools
+wget -qO- https://deb.nodesource.com/setup_12.x | bash
+apt-get update && \
+    apt-get install -y --no-install-recommends nodejs && \
+    npm install -g bower && \
+    npm install -g grunt && \
+    npm install -g gulp && \
+    npm install -g n && \
+    npm install -g webpack webpack-cli --save-dev && \
+    npm install -g parcel-bundler && \
+    npm i -g npm 
+rm -rf /var/lib/apt/lists/* 
+node --version
+
+# echo
+# echo 12\) Install Powershell Core
+# echo
+
+# curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
+# curl -fsSL https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
+# apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#         powershell 
+# rm -rf /var/lib/apt/lists/* 
+# rm -rf /etc/apt/sources.list.d/*
+
+echo
+echo 13\) Install Terraform
+echo
+
+VERSION=$(curl -sL https://releases.hashicorp.com/terraform | grep -v beta | grep -Po "_(\d*\.?){3}" | sed 's/_//' | sort -V | tail -1)
+wget https://releases.hashicorp.com/terraform/$VERSION/terraform_$VERSION_linux_$ARCH.zip
+unzip ./terraform_$VERSION_linux_$ARCH.zip -d /usr/local/bin/
+terraform --version
