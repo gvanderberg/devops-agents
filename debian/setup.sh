@@ -115,3 +115,14 @@ echo
 # Install Helm
 curl -fsSL https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get | bash
 helm version --client
+
+echo
+echo 8\) Install Kubectl
+echo
+
+# Install kubectl
+curl -sSLO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/$ARCH/kubectl
+chmod +x ./kubectl
+mv ./kubectl /usr/local/bin/kubectl
+kubectl version --client
+
