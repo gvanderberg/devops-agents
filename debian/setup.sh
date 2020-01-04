@@ -69,3 +69,19 @@ export LC_ALL=$LANG
 
 locale-gen $LANG
 update-locale
+
+echo
+echo 3\) Install Build Tools
+echo
+
+apt-get update && \
+    apt-get install -y --no-install-recommends \
+        build-essential 
+rm -rf /var/lib/apt/lists/*
+
+echo
+echo 4\) Install Azure CLI
+echo
+
+curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+az --version
