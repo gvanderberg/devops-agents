@@ -83,5 +83,8 @@ echo
 echo 4\) Install Azure CLI
 echo
 
-curl -sL https://aka.ms/InstallAzureCLIDeb | bash
+apt-get update && \
+    apt-get install -y --no-install-recommends \
+        azure-cli 
+rm -rf /var/lib/apt/lists/*
 az --version
