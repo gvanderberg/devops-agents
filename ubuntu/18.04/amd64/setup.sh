@@ -22,6 +22,7 @@ apt-get update && \
         sudo \
         telnet \
         time \
+        unixodbc-dev \
         unzip \
         wget \
         zip \
