@@ -17,7 +17,7 @@ apt-get update && \
         iputils-ping \
         locales \
         openssh-client \
-        rsync\
+        rsync \
         shellcheck \
         sudo \
         telnet \
