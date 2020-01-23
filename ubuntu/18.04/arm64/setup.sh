@@ -103,7 +103,7 @@ echo 8\) Install Docker
 echo
 
 # Install Docker
-curl -sSL https://get.docker.com | sh
+curl -sSL https://get.docker.com | bash
 rm -rf /etc/apt/sources.list.d/*
 
 echo
