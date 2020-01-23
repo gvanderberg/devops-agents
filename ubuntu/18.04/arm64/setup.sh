@@ -53,9 +53,20 @@ rm -rf /var/lib/apt/lists/*
 # echo 4\) Install Azure CLI
 # echo
 
+# curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+
 # Install Azure CLI (instructions taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
-# echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main"  | tee /etc/apt/sources.list.d/azure-cli.list
-# curl -L https://packages.microsoft.com/keys/microsoft.asc | apt-key add -
+
+# Get packages needed for the install process
+# apt-get update
+# apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
+
+# Download and install the Microsoft signing key
+# curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
+
+# Add the Azure CLI software repository
+# echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list
+
 # apt-get update
 # apt-get install -y --no-install-recommends apt-transport-https azure-cli 
 # rm -rf /var/lib/apt/lists/*
