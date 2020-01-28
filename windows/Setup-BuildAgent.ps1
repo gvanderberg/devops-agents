@@ -36,6 +36,7 @@ choco install -y kubernetes-cli
 choco install -y kubernetes-helm
 choco install -y nodejs-lts
 choco install -y powershell-core
+choco install -y python
 choco install -y terraform
 choco install -y yarn
 choco install -y visualstudio2019enterprise --package-parameters "--add Microsoft.VisualStudio.Workload.CoreEditor --add Microsoft.VisualStudio.Workload.Data --add Microsoft.VisualStudio.Workload.ManagedDesktop --add Microsoft.VisualStudio.Workload.NetCoreTools --add Microsoft.VisualStudio.Workload.NetCrossPlat --add Microsoft.VisualStudio.Workload.NetWeb --add Microsoft.VisualStudio.Workload.Node --add Microsoft.VisualStudio.Workload.Python --add Microsoft.VisualStudio.Workload.VisualStudioExtension --add Microsoft.Net.Component.4.6.2.SDK --add Microsoft.Net.Component.4.6.2.TargetingPack --add Microsoft.Net.Component.4.7.2.SDK --add Microsoft.Net.Component.4.7.2.TargetingPack --add Microsoft.Net.Component.4.8.TargetingPack --installPath F:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise --passive --locale en-US"
