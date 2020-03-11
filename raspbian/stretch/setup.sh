@@ -37,7 +37,7 @@ rm -rf /var/lib/apt/lists/*
 # export LANG=en_US.UTF-8
 # export LC_ALL=$LANG
 # locale-gen $LANG
-# update-locale
+# update-locale LANG=$LANG
 
 echo
 echo 3\) Install Build Tools
