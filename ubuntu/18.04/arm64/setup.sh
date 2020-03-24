@@ -16,6 +16,8 @@ apt-get update && \
     git \
     iproute2 \
     iputils-ping \
+    '^libssl1.0.[0-9]$' \
+    libunwind8 \
     locales \
     openssh-client \
     rsync \
@@ -29,9 +31,9 @@ apt-get update && \
     tzdata 
 rm -rf /var/lib/apt/lists/*
 
-# echo
-# echo 2\) Setup the locale
-# echo
+echo
+echo 2\) Setup the locale
+echo
 
 # Setup the locale
 # echo 'LANG=en_US.UTF-8' | tee /etc/default/locale
@@ -49,44 +51,27 @@ apt-get update
 apt-get install -y --no-install-recommends build-essential 
 rm -rf /var/lib/apt/lists/*
 
-# echo
-# echo 4\) Install Azure CLI
-# echo
-
-# curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
+echo
+echo 4\) Install Azure CLI
+echo
 
 # Install Azure CLI (instructions taken from https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+curl -L https://aka.ms/InstallAzureCli | bash
 
-# Get packages needed for the install process
-# apt-get update
-# apt-get install ca-certificates curl apt-transport-https lsb-release gnupg
-
-# Download and install the Microsoft signing key
-# curl -sL https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor | tee /etc/apt/trusted.gpg.d/microsoft.asc.gpg > /dev/null
-
-# Add the Azure CLI software repository
-# echo "deb [arch=arm64] https://packages.microsoft.com/repos/azure-cli/ $AZ_REPO main" | tee /etc/apt/sources.list.d/azure-cli.list
-
-# apt-get update
-# apt-get install -y --no-install-recommends apt-transport-https azure-cli 
-# rm -rf /var/lib/apt/lists/*
-# rm -rf /etc/apt/sources.list.d/*
-# az --version
-
-echo
-echo 5\) Install Powershell Core
-echo
+# echo
+# echo 5\) Install Powershell Core
+# echo
 
 # Install Powershell Core (instructions taken from https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell-core-on-linux?view=powershell-6#raspbian)
-apt-get update && \
-  apt-get install -y '^libssl1.0.[0-9]$' libunwind8 
-wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-linux-arm64.tar.gz
-mkdir -p /usr/share/powershell
-tar -xvf ./powershell-6.2.3-linux-arm64.tar.gz -C /usr/share/powershell
-rm -f ./powershell-6.2.3-linux-arm64.tar.gz
-ln -s /usr/share/powershell/pwsh /usr/bin/pwsh
-rm -rf /var/lib/apt/lists/*
-pwsh --version
+# apt-get update && \
+#   apt-get install -y '^libssl1.0.[0-9]$' libunwind8 
+# wget https://github.com/PowerShell/PowerShell/releases/download/v6.2.3/powershell-6.2.3-linux-arm64.tar.gz
+# mkdir -p /usr/share/powershell
+# tar -xvf ./powershell-6.2.3-linux-arm64.tar.gz -C /usr/share/powershell
+# rm -f ./powershell-6.2.3-linux-arm64.tar.gz
+# ln -s /usr/share/powershell/pwsh /usr/bin/pwsh
+# rm -rf /var/lib/apt/lists/*
+# pwsh --version
 
 # echo
 # echo 6\) Install GO
@@ -161,8 +146,6 @@ curl -LO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v
 chmod +x ./dotnet-install.sh
 mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --channel 2.1 --verbose
-./dotnet-install.sh --install-dir /usr/share/dotnet --channel 2.2 --verbose
-./dotnet-install.sh --install-dir /usr/share/dotnet --channel 3.0 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --channel 3.1 --verbose
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
