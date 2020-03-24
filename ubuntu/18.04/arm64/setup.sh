@@ -129,8 +129,8 @@ echo 11\) Install Java OpenJDKs
 echo
 
 # apt-add-repository -y ppa:openjdk-r/ppa
-apt-get update
-apt-get install -y --no-install-recommends openjdk-8-jdk
+apt-get update && \
+  apt-get install -y --no-install-recommends openjdk-8-jdk
 rm -rf /var/lib/apt/lists/*
 java -version
 
@@ -171,7 +171,8 @@ echo
 # Install yarn
 curl -sL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-apt-get update && apt-get install -y --no-install-recommends yarn
+apt-get update && \
+  apt-get install -y --no-install-recommends yarn
 rm -rf /etc/apt/sources.list.d/*
 yarn --version
 
