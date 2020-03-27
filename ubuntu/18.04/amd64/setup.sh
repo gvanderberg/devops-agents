@@ -146,7 +146,17 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 13\) Install Terraform
+echo 13\) Install Powershell Core
+echo
+
+wget https://aka.ms/downloadazcopy-v10-linux
+tar -xvf downloadazcopy-v10-linux
+rm /usr/bin/azcopy
+cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
+rm ./azcopy_linux_amd64_*
+
+echo
+echo 14\) Install Terraform
 echo
 
 wget https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_linux_amd64.zip
@@ -154,7 +164,7 @@ unzip ./terraform_0.12.13_linux_amd64.zip -d /usr/local/bin/
 terraform --version
 
 echo
-echo 14\) Install yarn
+echo 15\) Install yarn
 echo
 
 curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
@@ -166,7 +176,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 15\) Install Mono
+echo 16\) Install Mono
 echo
 
 # Install Mono
@@ -177,7 +187,7 @@ rm -rf /var/lib/apt/lists/*
 mono --version
 
 echo
-echo 16\) Install Python
+echo 17\) Install Python
 echo
 
 # Install Python
@@ -199,7 +209,7 @@ apt-get update && \
  rm -rf /var/lib/apt/lists/*
 
 echo
-echo 17\) Clean system
+echo 18\) Clean system
 echo
 
 apt-get clean 
