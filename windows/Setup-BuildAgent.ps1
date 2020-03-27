@@ -26,6 +26,7 @@ switch ($OSVersion)
 }
 
 choco install -y azure-cli
+choco install -y azurepowershell
 choco install -y dotnetcore-sdk --version=2.1.802
 choco install -y dotnetcore-sdk --version=2.2.402
 choco install -y dotnetcore-sdk --version=3.0.100
