@@ -15,6 +15,14 @@ apt-get update && \
         ftp \
         iproute2 \
         iputils-ping \
+        libgtk2.0-0 \
+        libgtk-3-0 \
+        libnotify-dev \
+        libgconf-2-4 \
+        libnss3 \
+        libxss1 \
+        libasound2 \
+        libxtst6 \
         locales \
         openssh-client \
         rsync \
@@ -22,11 +30,13 @@ apt-get update && \
         sudo \
         telnet \
         time \
+        tzdata \
         unixodbc-dev \
         unzip \
         wget \
-        zip \
-        tzdata
+        xauth \
+        xvfb \
+        zip 
 rm -rf /var/lib/apt/lists/*
 
 echo
