@@ -115,7 +115,7 @@ echo
 echo 10\) Install .NET Core SDK
 echo
 
-curl -sSLO  https://dotnetwebsite.azurewebsites.net/download/dotnet-core/scripts/v1/dotnet-install.sh
+curl -sSLO https://dot.net/v1/dotnet-install.ps1
 chmod +x ./dotnet-install.sh
 mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
