@@ -68,7 +68,7 @@ echo
 echo 5\) Install Google Chrome
 echo
 
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
+wget -qO - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
 echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | tee /etc/apt/sources.list.d/google-chrome.list 
 apt-get update && \
     apt-get install -y google-chrome-stable
@@ -223,7 +223,7 @@ echo
 echo 18\) Install Trivy
 echo
 
-curl -fsSL https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - 
+wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - 
 echo "deb https://aquasecurity.github.io/trivy-repo/deb $(AZ_REPO) main" | tee -a /etc/apt/sources.list.d/trivy.list
 apt-get update && \
     apt-get install -y --no-install-recommends \
