@@ -218,8 +218,22 @@ apt-get update && \
         python3-pip
  rm -rf /var/lib/apt/lists/*
 
+
 echo
-echo 18\) Clean system
+echo 18\) Install Trivy
+echo
+
+curl -fsSL https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - 
+echo "deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+apt-get update && \
+    apt-get install -y --no-install-recommends \
+        trivy 
+rm -rf /var/lib/apt/lists/* 
+rm -rf /etc/apt/sources.list.d/*
+trivy -v
+
+echo
+echo 19\) Clean system
 echo
 
 apt-get clean 
