@@ -115,13 +115,21 @@ echo
 echo 10\) Install .NET Core SDK
 echo
 
-curl -sSLO https://dot.net/v1/dotnet-install.ps1
+curl -sSLO https://dot.net/v1/dotnet-install.sh
 chmod +x ./dotnet-install.sh
 mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.802 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.402 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.100 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.100 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.200 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.201 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.202 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.300 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.302 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.401 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.402 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.403 --verbose
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
