@@ -156,7 +156,7 @@ echo
 echo 12\) Install Powershell Core
 echo
 
-wget -q https://packages.microsoft.com/config/ubuntu/$(RELEASE)/packages-microsoft-prod.deb
+wget -q https://packages.microsoft.com/config/ubuntu/$RELEASE/packages-microsoft-prod.deb
 dpkg -i packages-microsoft-prod.deb
 apt-get update && \
     apt-get install -y powershell
@@ -233,7 +233,7 @@ echo 18\) Install Trivy
 echo
 
 wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - 
-echo "deb https://aquasecurity.github.io/trivy-repo/deb $(CODENAME) main" | tee -a /etc/apt/sources.list.d/trivy.list
+echo "deb https://aquasecurity.github.io/trivy-repo/deb $CODENAME main" | tee -a /etc/apt/sources.list.d/trivy.list
 apt-get update && \
     apt-get install -y --no-install-recommends \
         trivy 
