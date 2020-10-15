@@ -1,6 +1,7 @@
 #!/bin/bash
 
-AZ_REPO=$(lsb_release -cs)
+CODENAME=$(lsb_release -cs)
+RELEASE=$(lsb_release -rs)
 
 echo
 echo 1\) Install Recommended
@@ -155,7 +156,7 @@ echo
 echo 12\) Install Powershell Core
 echo
 
-wget -q https://packages.microsoft.com/config/ubuntu/16.04/packages-microsoft-prod.deb
+wget -q https://packages.microsoft.com/config/ubuntu/$(RELEASE)/packages-microsoft-prod.deb
 dpkg -i packages-microsoft-prod.deb
 apt-get update && \
     apt-get install -y powershell
@@ -232,7 +233,7 @@ echo 18\) Install Trivy
 echo
 
 wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - 
-echo "deb https://aquasecurity.github.io/trivy-repo/deb $(AZ_REPO) main" | tee -a /etc/apt/sources.list.d/trivy.list
+echo "deb https://aquasecurity.github.io/trivy-repo/deb $(CODENAME) main" | tee -a /etc/apt/sources.list.d/trivy.list
 apt-get update && \
     apt-get install -y --no-install-recommends \
         trivy 
