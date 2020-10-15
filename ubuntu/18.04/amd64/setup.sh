@@ -165,19 +165,7 @@ echo
 echo 13\) Install AzCopy
 echo
 
-curl -fsSL https://packages.microsoft.com/keys/microsoft.asc | apt-key add - 
-curl -fsSL https://packages.microsoft.com/config/ubuntu/18.04/prod.list | tee /etc/apt/sources.list.d/microsoft.list 
-apt-get update && \
-    apt-get install -y --no-install-recommends \
-        powershell 
-rm -rf /var/lib/apt/lists/* 
-rm -rf /etc/apt/sources.list.d/*
-
-echo
-echo 14\) Install Powershell Core
-echo
-
-wget https://aka.ms/downloadazcopy-v10-linux
+wget -q https://aka.ms/downloadazcopy-v10-linux
 tar -xvf downloadazcopy-v10-linux
 rm /usr/bin/azcopy
 cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
@@ -186,7 +174,7 @@ chmod +x /usr/bin/azcopy
 azcopy -v
 
 echo
-echo 15\) Install Terraform
+echo 14\) Install Terraform
 echo
 
 wget https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_linux_amd64.zip
@@ -194,7 +182,7 @@ unzip ./terraform_0.12.13_linux_amd64.zip -d /usr/local/bin/
 terraform --version
 
 echo
-echo 16\) Install yarn
+echo 15\) Install yarn
 echo
 
 curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
@@ -206,7 +194,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 17\) Install Mono
+echo 16\) Install Mono
 echo
 
 # Install Mono
@@ -217,7 +205,7 @@ rm -rf /var/lib/apt/lists/*
 mono --version
 
 echo
-echo 18\) Install Python
+echo 17\) Install Python
 echo
 
 # Install Python
@@ -240,7 +228,7 @@ apt-get update && \
 
 
 echo
-echo 19\) Install Trivy
+echo 18\) Install Trivy
 echo
 
 wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - 
@@ -253,7 +241,7 @@ rm -rf /etc/apt/sources.list.d/*
 trivy -v
 
 echo
-echo 20\) Clean system
+echo 19\) Clean system
 echo
 
 apt-get clean 
