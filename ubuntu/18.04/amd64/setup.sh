@@ -82,6 +82,12 @@ echo
 
 # Install Docker
 curl -fsSL https://get.docker.com | bash
+cat <<EOF >/etc/docker/daemon.json
+{
+    "bip": "10.200.0.1/24"
+}
+EOF
+docker version
 
 echo
 echo 7\) Install Helm
