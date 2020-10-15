@@ -29,8 +29,8 @@ echo "dependencies installed"
 
 cat <<EOF >$DESTINATION/agent.config
 ./config.sh --unattended --replace --url $1 --auth pat --token $2 --pool $3 --agent $4 --acceptTeeEula --runAsService
-sudo /svc.sh install
-sudo /svc.sh start
+sudo ./svc.sh install
+sudo ./svc.sh start
 EOF
 
 # sudo -u azuresupport $DESTINATION/config.sh --unattended --replace --url $1 --auth pat --token $2 --pool $3 --agent $4 --acceptTeeEula --work ./_work --runAsService
