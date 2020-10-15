@@ -82,11 +82,13 @@ echo
 
 # Install Docker
 curl -fsSL https://get.docker.com | bash
+usermod azuresupport -aG docker
 cat <<EOF >/etc/docker/daemon.json
 {
     "bip": "10.200.0.1/24"
 }
 EOF
+service docker restart
 docker version
 
 echo
