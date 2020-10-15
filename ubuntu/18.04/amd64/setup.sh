@@ -173,6 +173,7 @@ rm /usr/bin/azcopy
 cp ./azcopy_linux_amd64_*/azcopy /usr/bin/
 rm ./azcopy_linux_amd64_*
 chmod +x /usr/bin/azcopy
+azcopy -v
 
 echo
 echo 14\) Install Terraform
