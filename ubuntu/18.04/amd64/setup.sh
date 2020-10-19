@@ -233,6 +233,16 @@ apt-get update && \
         python3-pip
  rm -rf /var/lib/apt/lists/*
 
+## 16.04 begin
+# add-apt-repository ppa:deadsnakes/ppa
+# apt-get update && \
+#     apt-get install -y --no-install-recommends \
+#         python3.7
+# ln -sf /usr/bin/python3.7 /usr/bin/python3
+# apt-get -y install python3-pip
+# python3 -m pip install --upgrade pip
+# pip install --upgrade pip
+## 16.04 end
 
 echo
 echo 18\) Install Trivy
