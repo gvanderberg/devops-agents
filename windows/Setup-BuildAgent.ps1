@@ -24,7 +24,8 @@ switch ($OSVersion)
     (Install-WindowsFeature Containers).RestartNeeded
   }
 }
-
+# Invoke-WebRequest 'https://dot.net/v1/dotnet-install.ps1' -OutFile 'dotnet-install.ps1'
+# ./dotnet-install.ps1 -Version '2.1.2' -Verbose
 choco install -y azure-cli
 choco install -y azurepowershell
 choco install -y dotnetcore-sdk --version=2.1.802
@@ -34,6 +35,8 @@ choco install -y dotnetcore-sdk --version=3.1.100
 choco install -y dotnetcore-sdk --version=3.1.202
 choco install -y dotnetcore-sdk --version=3.1.302
 choco install -y dotnetcore-sdk --version=3.1.403
+choco install -y dotnetcore-sdk --version=3.1.404
+choco install -y dotnet-sdk --version=5.0.100
 choco install -y git.install
 choco install -y jdk8
 choco install -y kubernetes-cli
