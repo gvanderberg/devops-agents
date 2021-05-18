@@ -64,6 +64,7 @@ echo
 
 curl -sL https://aka.ms/InstallAzureCLIDeb | bash
 az --version
+az extension add -n azure-cli-ml
 
 echo
 echo 5\) Install Google Chrome
