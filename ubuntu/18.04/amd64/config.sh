@@ -11,7 +11,7 @@ echo "0. URL: $1 \n1. Token: $2 \n2. Pool: $3 \n3. Agent: $4 \n4. Path: $DESTINA
 
 mkdir -p $DESTINATION
 
-# cd $DESTINATION
+cd $DESTINATION
 
 echo "Release "${AGENTRELEASE}" appears to be latest" 
 echo "Downloading..."
@@ -19,19 +19,19 @@ echo "Downloading..."
 wget -O agent.tar.gz ${AGENTURL} 
 tar zxvf agent.tar.gz -C $DESTINATION
 
-chmod -R 777 $DESTINATION
+chown -Rv azuresupport:azuresupport $DESTINATION
 
 echo "extracted"
 
-$DESTINATION/bin/installdependencies.sh
+./bin/installdependencies.sh
 
 echo "dependencies installed"
 
-cat <<EOF >$DESTINATION/agent.config
-./config.sh --unattended --replace --url $1 --auth pat --token $2 --pool $3 --agent $4 --acceptTeeEula --runAsService
-sudo ./svc.sh install
-sudo ./svc.sh start
-EOF
+# cat <<EOF >$DESTINATION/agent.config
+# ./config.sh --unattended --replace --url $1 --auth pat --token $2 --pool $3 --agent $4 --acceptTeeEula --runAsService
+# sudo ./svc.sh install
+# sudo ./svc.sh start
+# EOF
 
 # sudo -u azuresupport $DESTINATION/config.sh --unattended --replace --url $1 --auth pat --token $2 --pool $3 --agent $4 --acceptTeeEula --work ./_work --runAsService
 # $DESTINATION/config.sh --unattended --replace --url $1 --auth pat --token $2 --pool $3 --agent $4 --acceptTeeEula --runAsService
