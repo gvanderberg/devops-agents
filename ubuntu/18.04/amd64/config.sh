@@ -19,7 +19,7 @@ echo "Downloading..."
 wget -O agent.tar.gz ${AGENTURL} 
 tar zxvf agent.tar.gz -C $DESTINATION
 
-chown -Rv azuresupport:azuresupport $DESTINATION
+chown -R azuresupport:azuresupport $DESTINATION
 
 echo "extracted"
 
