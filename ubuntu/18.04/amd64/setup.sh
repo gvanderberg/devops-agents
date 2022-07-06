@@ -78,7 +78,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 6\) Install Docker
+echo 6\) Install docker
 echo
 
 # Install Docker
@@ -93,7 +93,15 @@ service docker restart
 docker version
 
 echo
-echo 7\) Install Helm
+echo 7\) Install docker-compose
+echo
+
+curl -L https://github.com/docker/compose/releases/download/1.29.2/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+docker-compose --version
+
+echo
+echo 8\) Install Helm
 echo
 
 # Install Helm
@@ -101,7 +109,7 @@ curl -fsSL https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get 
 helm version --client
 
 echo
-echo 8\) Install Kubectl
+echo 9\) Install Kubectl
 echo
 
 # Install kubectl
@@ -111,7 +119,7 @@ mv ./kubectl /usr/local/bin/kubectl
 kubectl version --client
 
 echo
-echo 9\) Install Java OpenJDKs
+echo 10\) Install Java OpenJDKs
 echo
 
 apt-add-repository -y ppa:openjdk-r/ppa
@@ -122,7 +130,7 @@ rm -rf /var/lib/apt/lists/*
 java -version
 
 echo
-echo 10\) Install .NET Core SDK
+echo 11\) Install .NET Core SDK
 echo
 
 curl -sSLO https://dot.net/v1/dotnet-install.sh
@@ -138,7 +146,7 @@ ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 11\) Install Node.js
+echo 12\) Install Node.js
 echo
 
 # Install LTS Node.js and related tools
@@ -156,7 +164,7 @@ rm -rf /var/lib/apt/lists/*
 node --version
 
 echo
-echo 12\) Install Powershell Core
+echo 13\) Install Powershell Core
 echo
 
 wget -q https://packages.microsoft.com/config/ubuntu/$RELEASE/packages-microsoft-prod.deb
@@ -166,7 +174,7 @@ apt-get update && \
 pwsh -v
 
 echo
-echo 13\) Install AzCopy
+echo 14\) Install AzCopy
 echo
 
 wget -q https://aka.ms/downloadazcopy-v10-linux
@@ -178,7 +186,7 @@ chmod +x /usr/bin/azcopy
 azcopy -v
 
 echo
-echo 14\) Install Terraform
+echo 15\) Install Terraform
 echo
 
 wget https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_linux_amd64.zip
@@ -186,7 +194,7 @@ unzip ./terraform_0.12.13_linux_amd64.zip -d /usr/local/bin/
 terraform --version
 
 echo
-echo 15\) Install yarn
+echo 16\) Install yarn
 echo
 
 curl -fsSL https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - 
@@ -198,7 +206,7 @@ rm -rf /var/lib/apt/lists/*
 rm -rf /etc/apt/sources.list.d/*
 
 echo
-echo 16\) Install Mono
+echo 17\) Install Mono
 echo
 
 # Install Mono
@@ -209,7 +217,7 @@ rm -rf /var/lib/apt/lists/*
 mono --version
 
 echo
-echo 17\) Install Python
+echo 18\) Install Python
 echo
 
 # Install Python
@@ -240,7 +248,7 @@ apt-get update && \
 ## 16.04 end
 
 echo
-echo 18\) Install Trivy
+echo 19\) Install Trivy
 echo
 
 wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | apt-key add - 
@@ -253,7 +261,7 @@ rm -rf /etc/apt/sources.list.d/*
 trivy -v
 
 echo
-echo 19\) Clean system
+echo 20\) Clean system
 echo
 
 apt-get clean 
