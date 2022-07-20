@@ -146,22 +146,31 @@ ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
 echo
-echo 12\) Install Node.js
+echo 12\) Install Node Version Manager
 echo
 
-# Install LTS Node.js and related tools
-wget -qO- https://deb.nodesource.com/setup_12.x | bash
-apt-get update && \
-    apt-get install -y --no-install-recommends nodejs && \
-    npm install -g bower && \
-    npm install -g grunt && \
-    npm install -g gulp && \
-    npm install -g n && \
-    npm install -g webpack webpack-cli --save-dev && \
-    npm install -g parcel-bundler && \
-    npm i -g npm 
-rm -rf /var/lib/apt/lists/* 
+# Install Node Version Manager
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
+source ~/.bashrc
+
+nvm version
+nvm install 16.16.0
+nvm use 16.16.0
+
 node --version
+
+# Install LTS Node.js and related tools
+# wget -qO- https://deb.nodesource.com/setup_12.x | bash
+# apt-get update && \
+#     apt-get install -y --no-install-recommends nodejs && \
+npm install -g bower && \
+npm install -g grunt && \
+npm install -g gulp && \
+npm install -g n && \
+npm install -g webpack webpack-cli --save-dev && \
+npm install -g parcel-bundler && \
+npm i -g npm 
+rm -rf /var/lib/apt/lists/* 
 
 echo
 echo 13\) Install Powershell Core
