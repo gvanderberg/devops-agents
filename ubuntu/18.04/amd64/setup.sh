@@ -198,8 +198,8 @@ echo
 echo 15\) Install Terraform
 echo
 
-wget https://releases.hashicorp.com/terraform/0.12.13/terraform_0.12.13_linux_amd64.zip
-unzip ./terraform_0.12.13_linux_amd64.zip -d /usr/local/bin/
+wget https://releases.hashicorp.com/terraform/1.2.5/terraform_1.2.5_linux_amd64.zip
+unzip ./terraform_1.2.5_linux_amd64.zip -d /usr/local/bin/
 terraform --version
 
 echo
