@@ -139,9 +139,9 @@ mkdir -p /usr/share/dotnet
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.1.818 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 2.2.207 --verbose
 ./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.0.103 --verbose
-./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.415 --verbose
-./dotnet-install.sh --install-dir /usr/share/dotnet --version 5.0.403 --verbose
-./dotnet-install.sh --install-dir /usr/share/dotnet --version 6.0.100 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 3.1.421 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 5.0.408 --verbose
+./dotnet-install.sh --install-dir /usr/share/dotnet --version 6.0.302 --verbose
 ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet
 dotnet --version
 
